@@ -1,11 +1,14 @@
 "use client";
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import CardDataStats from "../CardDataStats";
 import { FiBookOpen, FiClipboard, FiGrid, FiUsers } from "react-icons/fi";
 
 import { RoleGate } from "@/components/auth/role-gate";
 import { UserRole } from "@prisma/client";
 import { useTranslation } from "react-i18next";
+import { Task } from "@/components/tasks/taskTypes";
+import { useCurrentUser } from "@/hooks/use-current-user";
+import Link from "next/link";
 
 interface DashboardProps {
   totalDataCard: {
@@ -17,6 +20,53 @@ interface DashboardProps {
 }
 const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
   const { t } = useTranslation();
+  const user = useCurrentUser();
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const storageKey = useMemo(
+    () => `tasks:${user?.id ?? "guest"}`,
+    [user?.id]
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) setTasks(JSON.parse(raw) as Task[]);
+    } catch (e) {
+      // ignore parse errors
+    }
+  }, [storageKey]);
+
+  useEffect(() => {
+    const handler = (e: StorageEvent) => {
+      if (e.key === storageKey && e.newValue) {
+        try {
+          setTasks(JSON.parse(e.newValue));
+        } catch (err) {
+          // ignore
+        }
+      }
+    };
+    if (typeof window !== "undefined") {
+      window.addEventListener("storage", handler);
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("storage", handler);
+      }
+    };
+  }, [storageKey]);
+
+  const upcoming = useMemo(() => {
+    return tasks
+      .filter((t) => t.status === "todo" || t.status === "inProgress")
+      .sort(
+        (a, b) => new Date(a.due).getTime() - new Date(b.due).getTime()
+      )
+      .slice(0, 3);
+  }, [tasks]);
+
   return (
     <>
       <div className="surface-panel mb-6 flex flex-col gap-4 rounded-3xl px-6 py-5 backdrop-blur">
@@ -113,23 +163,37 @@ const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
             <h3 className="font-grotesk text-xl font-semibold text-slate-900 dark:text-white">
               {t("dashboard.upcoming")}
             </h3>
-            <span className="rounded-full bg-white/30 px-3 py-1 text-xs font-semibold text-slate-800 dark:bg-white/10 dark:text-sky-100">
+            <Link
+              href="/tasks"
+              className="rounded-full bg-white/30 px-3 py-1 text-xs font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:bg-white/60 dark:bg-white/10 dark:text-sky-100"
+            >
               {t("dashboard.plan")}
-            </span>
+            </Link>
           </div>
           <div className="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-200">
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3">
-              <p className="text-slate-900 dark:text-white">{t("dashboard.todo1")}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-300">{t("dashboard.todo1desc")}</p>
-            </div>
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3">
-              <p className="text-slate-900 dark:text-white">{t("dashboard.todo2")}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-300">{t("dashboard.todo2desc")}</p>
-            </div>
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3">
-              <p className="text-slate-900 dark:text-white">{t("dashboard.todo3")}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-300">{t("dashboard.todo3desc")}</p>
-            </div>
+            {upcoming.length === 0 && (
+              <div className="rounded-2xl border border-dashed border-[var(--border)] bg-[var(--surface)] px-4 py-6 text-center text-[var(--text-muted)]">
+                {t("dashboard.noUpcoming")}
+              </div>
+            )}
+            {upcoming.map((task) => (
+              <div
+                key={task.id}
+                className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3"
+              >
+                <p className="text-slate-900 dark:text-white">{task.title}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-300">
+                  {new Date(task.due).toLocaleDateString()} •{" "}
+                  {task.status === "todo"
+                    ? t("tasks.columns.todo")
+                    : task.status === "inProgress"
+                      ? t("tasks.columns.inProgress")
+                      : task.status === "onHold"
+                        ? t("tasks.columns.onHold")
+                        : t("tasks.columns.done")}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

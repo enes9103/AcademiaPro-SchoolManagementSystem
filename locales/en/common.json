@@ -104,6 +104,7 @@
     "active": "Active",
     "upcoming": "Upcoming Tasks",
     "plan": "Plan",
+    "noUpcoming": "No upcoming tasks yet.",
     "todo1": "Check lesson/class matching",
     "todo1desc": "Teacher and classroom assignments",
     "todo2": "Update assignment deadlines",

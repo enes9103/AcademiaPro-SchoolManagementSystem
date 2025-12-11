@@ -104,6 +104,7 @@
     "active": "Aktif",
     "upcoming": "Yaklaşan işler",
     "plan": "Plan",
+    "noUpcoming": "Yaklaşan görev bulunmuyor.",
     "todo1": "Sınıf ve ders eşleştirmelerini kontrol edin",
     "todo1desc": "Öğretmen ve sınıf atamaları",
     "todo2": "Ödev teslim tarihlerini güncelleyin",

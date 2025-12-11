@@ -104,6 +104,7 @@
     "active": "Aktiv",
     "upcoming": "Bevorstehende Aufgaben",
     "plan": "Plan",
+    "noUpcoming": "Keine anstehenden Aufgaben.",
     "todo1": "Klassen- und Unterrichtszuordnung prüfen",
     "todo1desc": "Lehrer- und Klassenzuweisungen",
     "todo2": "Abgabetermine aktualisieren",
