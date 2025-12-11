@@ -16,6 +16,24 @@ type ProfileCardProps = {
 
 export const ProfileCard = ({ user }: ProfileCardProps) => {
   const { t } = useTranslation();
+  const normalized = user.status?.toString().trim().toUpperCase();
+  const statusKey =
+    normalized === "ACTIVE"
+      ? "active"
+      : normalized === "IN_ACTIVE"
+        ? "inactive"
+        : normalized === "BANNED"
+          ? "banned"
+          : normalized === "UNKNOW"
+            ? "unknown"
+            : null;
+  const statusLabel = statusKey ? t(`status.${statusKey}`, statusKey) : user.status;
+  const statusClass =
+    statusKey === "active"
+      ? "border-emerald-200 bg-emerald-100 text-emerald-700"
+      : statusKey === "banned"
+        ? "border-red-200 bg-red-100 text-red-700"
+        : "border-amber-200 bg-amber-100 text-amber-700";
 
   return (
     <div className="surface-panel rounded-3xl px-6 pb-6 pt-5 sm:px-8">
@@ -57,8 +75,8 @@ export const ProfileCard = ({ user }: ProfileCardProps) => {
           <p className="text-sm font-semibold text-[var(--text-muted)]">
             {t("profile.status")}
           </p>
-          <Badge variant="outline" className="capitalize">
-            {user.status ?? "—"}
+          <Badge variant="outline" className={`capitalize ${statusClass}`}>
+            {statusLabel ?? "—"}
           </Badge>
         </div>
         <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
