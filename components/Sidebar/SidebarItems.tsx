@@ -6,6 +6,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useSideBarToggle } from "@/hooks/sidebar-toggle";
 import { useCurrentRole } from "@/hooks/use-current-role";
+import { FiChevronRight } from "react-icons/fi";
 export const SidebarItems = ({ item }: { item: SideNavItem }) => {
   const { toggleCollapse } = useSideBarToggle();
   const role = useCurrentRole();
@@ -45,18 +46,9 @@ export const SidebarItems = ({ item }: { item: SideNavItem }) => {
                 <span className="ml-3 text-base leading-6 font-semibold">
                   {item.title}
                 </span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={`${subMenuOpen ? "rotate-90" : ""} ml-auto h-4 w-4 stroke-2 text-xs`}
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6.293 5.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414zM10 16a1 1 0 110-2 1 1 0 010 2zM6 10a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <FiChevronRight
+                  className={`${subMenuOpen ? "rotate-90" : ""} ml-auto h-4 w-4 text-[var(--text-primary)] transition`}
+                />
               </>
             )}
           </button>
