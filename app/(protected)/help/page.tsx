@@ -1,7 +1,9 @@
 ﻿"use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { FiChevronDown, FiChevronUp, FiExternalLink } from "react-icons/fi";
+import { useCurrentRole } from "@/hooks/use-current-role";
+import { UserRole } from "@prisma/client";
 
 type Item = {
   id: string;
@@ -101,8 +103,57 @@ const items: Item[] = [
   },
 ];
 
+const studentItems: Item[] = [
+  {
+    id: "student-classroom",
+    title: "Sınıfımı nerede görebilirim?",
+    summary:
+      "Hangi sınıfa kayıtlı olduğunuzu ve sınıf adını Classroom sayfasından görüntüleyebilirsiniz.",
+    steps: [
+      "Menüde Student > Classroom seçeneğine tıklayın.",
+      "Tabloda kayıtlı olduğunuz sınıf(lar) listelenir.",
+      "Arama ile sınıf adını hızlıca filtreleyebilirsiniz.",
+    ],
+    cta: { label: "Classroom sayfasına git", href: "/student/classroom" },
+  },
+  {
+    id: "student-assignments",
+    title: "Ödevlerimi nasıl görürüm?",
+    summary:
+      "Sınıfınıza tanımlanmış tüm ödevleri görev, ders, öğretmen ve teslim tarihiyle birlikte görüntüleyin.",
+    steps: [
+      "Menüde Student > Assignments seçeneğine tıklayın.",
+      "Tabloda ödev adı, ders, sınıf, deadline ve öğretmen bilgilerini inceleyin.",
+      "Arama kutusuyla ders veya görev adına göre filtreleyin.",
+    ],
+    cta: { label: "Assignments sayfasına git", href: "/student/assignments" },
+  },
+  {
+    id: "student-schedule",
+    title: "Ders programım nerede?",
+    summary:
+      "Sınıfınıza ait planlanmış derslerin tarih ve saat bilgilerini Schedule ekranından takip edin.",
+    steps: [
+      "Menüde Student > Schedule seçeneğine tıklayın.",
+      "Ders, sınıf, tarih, saat ve öğretmen bilgilerini tablo halinde görün.",
+      "Arama ile ders veya sınıf adına göre filtreleyin.",
+    ],
+    cta: { label: "Schedule sayfasına git", href: "/student/schedule" },
+  },
+];
+
 const HelpPage = () => {
-  const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
+  const role = useCurrentRole();
+  const list = useMemo(() => {
+    if (role === UserRole.STUDENT) return studentItems;
+    return items;
+  }, [role]);
+
+  const [openId, setOpenId] = useState<string | null>(list[0]?.id ?? null);
+
+  useEffect(() => {
+    setOpenId(list[0]?.id ?? null);
+  }, [list]);
 
   const toggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -126,7 +177,7 @@ const HelpPage = () => {
         </header>
 
         <div className="space-y-3">
-          {items.map((item) => {
+          {list.map((item) => {
             const isOpen = openId === item.id;
             return (
               <div
