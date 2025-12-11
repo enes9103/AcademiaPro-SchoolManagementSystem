@@ -93,7 +93,7 @@ const Ad = () => {
             Close
           </button>
           <button
-            className="btnAdd"
+            className="btnSave"
             type="button"
             onClick={handleAdd}
             disabled={isLoading}

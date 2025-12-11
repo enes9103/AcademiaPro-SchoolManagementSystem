@@ -102,7 +102,7 @@ const Edt = ({ classroom }: { classroom: Classroom }) => {
             Close
           </button>
           <button
-            className="btnEdt"
+            className="btnSave"
             type="button"
             onClick={handleUpdate}
             disabled={isLoading}

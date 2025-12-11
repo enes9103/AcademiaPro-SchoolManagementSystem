@@ -63,7 +63,7 @@ const Del = ({ assignment }: { assignment: Assignment }) => {
             Close
           </button>
           <button
-            className="btnDel"
+            className="btnSave"
             type="button"
             onClick={() => handleDelete(assignment.id, assignment.fileUrl)}
             disabled={isLoading}

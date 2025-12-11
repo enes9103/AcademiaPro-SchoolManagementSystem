@@ -63,7 +63,7 @@ const Del = ({ lesson }: { lesson: Lesson }) => {
             Close
           </button>
           <button
-            className="btnDel"
+            className="btnSave"
             type="button"
             onClick={() => handleDelete(lesson.id)}
             disabled={isLoading}

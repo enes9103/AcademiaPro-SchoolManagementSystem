@@ -62,7 +62,7 @@ const Del = ({ user }: { user: User }) => {
             Close
           </button>
           <button
-            className="btnDel"
+            className="btnSave"
             type="button"
             onClick={() => handleDelete(user.id)}
             disabled={isLoading}
