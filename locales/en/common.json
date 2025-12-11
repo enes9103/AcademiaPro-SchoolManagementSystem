@@ -18,5 +18,32 @@
     "cardContactDesc": "Join AkademiaPro to manage classes, schedules, and assignments in one place. Get in touch to sign up.",
     "cardDemoDesc": "Discover homework management, schedule planning, reports, and more. Request a demo.",
     "cardSupportDesc": "Need help with signup or access? Reach our support team via phone or email."
+  },
+  "dashboard": {
+    "label": "Dashboard",
+    "headline": "See your school's pulse at a glance.",
+    "subtitle": "Track lessons, assignments, and classrooms in real time with role-based visibility and a clear interface.",
+    "ctaNew": "+ New Record",
+    "ctaReport": "Download Report",
+    "cards": {
+      "classrooms": "Classrooms",
+      "lessons": "Lessons",
+      "assignments": "Assignments",
+      "users": "Total Users"
+    },
+    "quickLook": "Quick Look",
+    "live": "Live",
+    "ratio": "Lesson/Class Ratio",
+    "perAssignment": "Classes per Assignment",
+    "updates": "Recent Updates",
+    "active": "Active",
+    "upcoming": "Upcoming Tasks",
+    "plan": "Plan",
+    "todo1": "Check lesson/class matching",
+    "todo1desc": "Teacher and classroom assignments",
+    "todo2": "Update assignment deadlines",
+    "todo2desc": "Keep calendars current for all students",
+    "todo3": "Role and access control",
+    "todo3desc": "Admin/Teacher/Student visibility"
   }
 }

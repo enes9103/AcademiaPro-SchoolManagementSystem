@@ -18,5 +18,32 @@
     "cardContactDesc": "Treten Sie AkademiaPro bei und verwalten Sie Klassen, Pläne und Aufgaben an einem Ort. Kontaktieren Sie uns für die Registrierung.",
     "cardDemoDesc": "Entdecken Sie Aufgabenverwaltung, Planungen, Berichte und mehr. Fordern Sie eine Demo an.",
     "cardSupportDesc": "Brauchen Sie Hilfe bei Registrierung oder Zugang? Kontaktieren Sie unser Support-Team per Telefon oder E-Mail."
+  },
+  "dashboard": {
+    "label": "Dashboard",
+    "headline": "Behalten Sie den Überblick über Ihre Schule.",
+    "subtitle": "Verfolgen Sie Unterricht, Aufgaben und Klassen in Echtzeit mit rollenbasierter Sichtbarkeit.",
+    "ctaNew": "+ Neuer Eintrag",
+    "ctaReport": "Bericht herunterladen",
+    "cards": {
+      "classrooms": "Klassen",
+      "lessons": "Unterricht",
+      "assignments": "Aufgaben",
+      "users": "Gesamt Nutzer"
+    },
+    "quickLook": "Schnellansicht",
+    "live": "Live",
+    "ratio": "Verhältnis Unterricht/Klasse",
+    "perAssignment": "Klassen pro Aufgabe",
+    "updates": "Letzte Updates",
+    "active": "Aktiv",
+    "upcoming": "Bevorstehende Aufgaben",
+    "plan": "Plan",
+    "todo1": "Klassen- und Unterrichtszuordnung prüfen",
+    "todo1desc": "Lehrer- und Klassenzuweisungen",
+    "todo2": "Abgabetermine aktualisieren",
+    "todo2desc": "Aktuelle Kalender für alle Schüler",
+    "todo3": "Rollen- und Zugriffskontrolle",
+    "todo3desc": "Admin/Lehrer/Schüler-Sichtbarkeit"
   }
 }

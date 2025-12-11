@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 
 interface CardDataStatsProps {
   title: string;

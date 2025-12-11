@@ -18,5 +18,32 @@
     "cardContactDesc": "AkademiaPro'ya katılın, sınıf/schedule/assignment takibini tek panelden yönetin. Kayıt için bize ulaşın.",
     "cardDemoDesc": "Ödev yönetimi, program planlama, raporlar ve daha fazlasını keşfedin. Demo talep edin.",
     "cardSupportDesc": "Kayıt veya erişim için destek ekibimizle iletişime geçin. Telefon ya da e-posta ile ulaşabilirsiniz."
+  },
+  "dashboard": {
+    "label": "Kontrol Paneli",
+    "headline": "Okulunuzun nabzını tek bakışta görün.",
+    "subtitle": "Ders, ödev ve sınıf operasyonlarını gerçek zamanlı takip edin. Rol bazlı görünürlük ve ferah arayüzle çalışın.",
+    "ctaNew": "+ Yeni Kayıt",
+    "ctaReport": "Rapor İndir",
+    "cards": {
+      "classrooms": "Sınıf Sayısı",
+      "lessons": "Ders Sayısı",
+      "assignments": "Ödev Sayısı",
+      "users": "Toplam Kullanıcı"
+    },
+    "quickLook": "Hızlı Bakış",
+    "live": "Canlı",
+    "ratio": "Ders/Sınıf Oranı",
+    "perAssignment": "Ödev Başına Sınıf",
+    "updates": "Son Güncellemeler",
+    "active": "Aktif",
+    "upcoming": "Yaklaşan işler",
+    "plan": "Plan",
+    "todo1": "Sınıf ve ders eşleştirmelerini kontrol edin",
+    "todo1desc": "Öğretmen ve sınıf atamaları",
+    "todo2": "Ödev teslim tarihlerini güncelleyin",
+    "todo2desc": "Tüm öğrenciler için güncel takvim",
+    "todo3": "Rol ve erişim kontrolü",
+    "todo3desc": "Admin/Teacher/Student görünürlük"
   }
 }
