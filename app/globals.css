@@ -333,3 +333,24 @@ input[type="search"]::-webkit-search-cancel-button {
 .btnDownload {
   @apply rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold text-white shadow transition hover:brightness-95 outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
 }
+
+/* refreshed shared buttons & modal fields */
+.btnEdtAssignment {
+  @apply rounded-full bg-amber-500 px-3 py-1 text-xs font-semibold text-white shadow transition hover:brightness-95 outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
+}
+
+.btnDelAssignment {
+  @apply rounded-full bg-danger px-3 py-1 text-xs font-semibold text-white shadow transition hover:brightness-95 outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
+}
+
+.modal-label {
+  @apply mb-1 block text-sm font-medium text-[var(--text-primary)];
+}
+
+.modal-input {
+  @apply w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-[var(--text-primary)] outline-none focus:border-[var(--border-strong)];
+}
+
+.modal-select {
+  @apply w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-[var(--text-primary)] outline-none focus:border-[var(--border-strong)];
+}

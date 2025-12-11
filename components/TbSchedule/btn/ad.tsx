@@ -4,6 +4,7 @@ import { useState, SyntheticEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Lessons, Classrooms } from "@prisma/client";
 import { useToast } from "@/components/ui/use-toast";
+import { Modal } from "@/components/common/modal";
 
 interface AdProps {
   lessons: Lessons[];
@@ -60,119 +61,88 @@ const Ad = ({ lessons, classrooms }: AdProps) => {
       >
         Add
       </button>
-      {showModal ? (
-        <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed top-25 right-10 left-10 bottom-25 xsm:left-4 xsm:right-4 lg:left-80 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:border-strokedark dark:bg-boxdark outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold text-black dark:text-white">
-                    Add Schedule
-                  </h3>
-                </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <form>
-                    <label
-                      htmlFor="lesson"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Lesson:
-                    </label>
-                    <select
-                      name="lesson"
-                      id="lesson"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={lesson}
-                      onChange={(e) => setLesson(e.target.value)}
-                    >
-                      <option value="" hidden>
-                        Select Lesson
-                      </option>
-                      {lessons.map((lesson) => (
-                        <option value={lesson.id} key={lesson.id}>
-                          {lesson.name}
-                        </option>
-                      ))}
-                    </select>
-                    <label
-                      htmlFor="classroom"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Classroom:
-                    </label>
-                    <select
-                      name="classroom"
-                      id="classroom"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={classroom}
-                      onChange={(e) => setClassroom(e.target.value)}
-                    >
-                      <option value="" hidden>
-                        Select Classroom
-                      </option>
-                      {classrooms.map((classroom) => (
-                        <option value={classroom.id} key={classroom.id}>
-                          {classroom.name}
-                        </option>
-                      ))}
-                    </select>
-                    <label
-                      htmlFor="day"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Day:
-                    </label>
-                    <input
-                      id="day"
-                      type="date"
-                      placeholder="Day for schedule"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={day}
-                      onChange={(e) => setDay(e.target.value)}
-                    />
-                    <label
-                      htmlFor="time"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Time:
-                    </label>
-                    <input
-                      name="time"
-                      type="time"
-                      id="time"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={time}
-                      onChange={(e) => setTime(e.target.value)}
-                    />
-                  </form>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="btnClose"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="btnSave"
-                    type="button"
-                    onClick={handleAdd}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Loading..." : "Save Changes"}
-                  </button>
-                </div>
-              </div>
+      <Modal open={showModal} onClose={() => setShowModal(false)} title="Add Schedule">
+        <form className="space-y-3">
+          <div>
+            <label htmlFor="lesson" className="modal-label">
+              Lesson
+            </label>
+            <select
+              name="lesson"
+              id="lesson"
+              className="modal-select"
+              value={lesson}
+              onChange={(e) => setLesson(e.target.value)}
+            >
+              <option value="" hidden>
+                Select Lesson
+              </option>
+              {lessons.map((lesson) => (
+                <option value={lesson.id} key={lesson.id}>
+                  {lesson.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="classroom" className="modal-label">
+              Classroom
+            </label>
+            <select
+              name="classroom"
+              id="classroom"
+              className="modal-select"
+              value={classroom}
+              onChange={(e) => setClassroom(e.target.value)}
+            >
+              <option value="" hidden>
+                Select Classroom
+              </option>
+              {classrooms.map((classroom) => (
+                <option value={classroom.id} key={classroom.id}>
+                  {classroom.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div>
+              <label htmlFor="day" className="modal-label">
+                Day
+              </label>
+              <input
+                id="day"
+                type="date"
+                placeholder="Day for schedule"
+                className="modal-input"
+                value={day}
+                onChange={(e) => setDay(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="time" className="modal-label">
+                Time
+              </label>
+              <input
+                name="time"
+                type="time"
+                id="time"
+                className="modal-input"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+        </form>
+        <div className="mt-6 flex justify-end gap-3">
+          <button className="btnClose" type="button" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+          <button className="btnSave" type="button" onClick={handleAdd} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Save Changes"}
+          </button>
+        </div>
+      </Modal>
     </>
   );
 };

@@ -3,17 +3,20 @@ import axios from "axios";
 import { useState, SyntheticEvent } from "react";
 import { useRouter } from "next/navigation";
 import { getStorage, ref, deleteObject } from "firebase/storage";
+import { useToast } from "@/components/ui/use-toast";
+import { Modal } from "@/components/common/modal";
+
 type Assignment = {
   id: string;
   fileUrl: string | null;
 };
-import { useToast } from "@/components/ui/use-toast";
 
 const Del = ({ assignment }: { assignment: Assignment }) => {
   const { toast } = useToast();
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+
   const handleDelete = async (id: string, fileUrl: string | null) => {
     setIsLoading(true);
     try {
@@ -46,57 +49,29 @@ const Del = ({ assignment }: { assignment: Assignment }) => {
 
   return (
     <>
-      <button
-        className="btnDel"
-        type="button"
-        onClick={() => setShowModal(true)}
-      >
+      <button className="btnDel" type="button" onClick={() => setShowModal(true)}>
         Delete
       </button>
-      {showModal ? (
-        <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed top-25 right-10 left-10 bottom-25 xsm:left-4 xsm:right-7 lg:left-80 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:bg-boxdark outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold text-black dark:text-white">
-                    Delete Assignment
-                  </h3>
-                </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <p className="text-black dark:text-white">
-                    Are you sure you want to delete this assignment ?
-                  </p>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="btnClose"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="btnSave"
-                    type="button"
-                    onClick={() =>
-                      handleDelete(assignment.id, assignment.fileUrl)
-                    }
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Loading..." : "Save Changes"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+      <Modal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        title="Delete Assignment"
+        description="Are you sure you want to delete this assignment?"
+      >
+        <div className="flex justify-end gap-3">
+          <button className="btnClose" type="button" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+          <button
+            className="btnDel"
+            type="button"
+            onClick={() => handleDelete(assignment.id, assignment.fileUrl)}
+            disabled={isLoading}
+          >
+            {isLoading ? "Loading..." : "Save Changes"}
+          </button>
+        </div>
+      </Modal>
     </>
   );
 };

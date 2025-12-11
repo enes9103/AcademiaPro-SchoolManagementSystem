@@ -4,6 +4,7 @@ import { useState, SyntheticEvent } from "react";
 import { Classrooms } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
+import { Modal } from "@/components/common/modal";
 type Student = {
   id: string;
   userId: string;
@@ -61,93 +62,56 @@ const Add = ({ student, classrooms }: EdtProps) => {
       >
         Add
       </button>
-      {showModal ? (
-        <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed top-25 right-10 left-10 bottom-25 xsm:left-4 xsm:right-4 lg:left-80 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-strokedark dark:bg-boxdark">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold  text-black dark:text-white">
-                    Update User: {student.name}
-                  </h3>
-                </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <form>
-                    <label
-                      htmlFor="name"
-                      className="block font-medium text-gray-700  text-black dark:text-white"
-                    >
-                      Name:
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      placeholder="Name"
-                      className="border border-gray-300 rounded-md p-2 w-full  text-black dark:text-white"
-                      value={name}
-                      onChange={(e) => setStudent(e.target.value)}
-                      disabled
-                    />
-                    <input
-                      id="id"
-                      type="text"
-                      placeholder="id"
-                      className="border border-gray-300 rounded-md p-2 w-full  text-black dark:text-white"
-                      value={studentId}
-                      onChange={(e) => setName(e.target.value)}
-                      hidden
-                    />
-                    <label
-                      htmlFor="classroom"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Classroom:
-                    </label>
-                    <select
-                      name="classroom"
-                      id="classroom"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={classroom}
-                      onChange={(e) => setClassroom(e.target.value)}
-                    >
-                      <option value="" hidden>
-                        Select Classroom
-                      </option>
-                      {classrooms.map((classroom) => (
-                        <option value={classroom.id} key={classroom.id}>
-                          {classroom.name}
-                        </option>
-                      ))}
-                    </select>
-                  </form>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="btnClose"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="btnSave"
-                    type="button"
-                    onClick={handleUpdate}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Loading..." : "Save Changes"}
-                  </button>
-                </div>
-              </div>
-            </div>
+      <Modal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        title={`Add to Classroom: ${student.name}`}
+      >
+        <form className="space-y-3">
+          <div>
+            <label htmlFor="name" className="modal-label">
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              className="modal-input"
+              value={name}
+              disabled
+            />
+            <input id="id" type="hidden" value={studentId} readOnly />
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+          <div>
+            <label htmlFor="classroom" className="modal-label">
+              Classroom
+            </label>
+            <select
+              name="classroom"
+              id="classroom"
+              className="modal-select"
+              value={classroom}
+              onChange={(e) => setClassroom(e.target.value)}
+            >
+              <option value="" hidden>
+                Select Classroom
+              </option>
+              {classrooms.map((classroom) => (
+                <option value={classroom.id} key={classroom.id}>
+                  {classroom.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </form>
+        <div className="mt-6 flex justify-end gap-3">
+          <button className="btnClose" type="button" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+          <button className="btnSave" type="button" onClick={handleUpdate} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Save Changes"}
+          </button>
+        </div>
+      </Modal>
     </>
   );
 };

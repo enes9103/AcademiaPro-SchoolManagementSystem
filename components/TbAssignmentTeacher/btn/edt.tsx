@@ -4,6 +4,7 @@ import { useState, SyntheticEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Lessons, Classrooms } from "@prisma/client";
 import { useToast } from "@/components/ui/use-toast";
+import { Modal } from "@/components/common/modal";
 
 type Assignment = {
   id: string;
@@ -40,8 +41,7 @@ const Edt = ({ assignment, lessons, classrooms }: EdtProps) => {
     e.preventDefault();
     try {
       if (
-        deadline ===
-          new Date(assignment.deadline).toISOString().split("T")[0] &&
+        deadline === new Date(assignment.deadline).toISOString().split("T")[0] &&
         time === assignment.time &&
         classId === assignment.classId &&
         task === assignment.task &&
@@ -61,7 +61,7 @@ const Edt = ({ assignment, lessons, classrooms }: EdtProps) => {
         createBy: teacherId,
       });
       toast({
-        title: "Assignment Add successfully",
+        title: "Assignment updated",
         description: `Assignment : ${response.data.task}`,
       });
     } catch (error: any) {
@@ -82,149 +82,114 @@ const Edt = ({ assignment, lessons, classrooms }: EdtProps) => {
   };
   return (
     <>
-      <button
-        className="btnEdt"
-        type="button"
-        onClick={() => setShowModal(true)}
-      >
+      <button className="btnEdt" type="button" onClick={() => setShowModal(true)}>
         Edit
       </button>
-      {showModal ? (
-        <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed top-25 right-10 left-10 bottom-25 xsm:left-4 xsm:right-7 lg:left-80 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-strokedark dark:bg-boxdark">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold  text-black dark:text-white">
-                    Update assignment ?
-                  </h3>
-                </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <form>
-                    <label
-                      htmlFor="task"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Task:
-                    </label>
-                    <input
-                      id="task"
-                      type="teks"
-                      placeholder="Name of task"
-                      className="border border-gray-300 rounded-md p-2 w-full  text-black "
-                      value={task}
-                      onChange={(e) => setTask(e.target.value)}
-                    />
-                    <label
-                      htmlFor="lesson"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Lesson:
-                    </label>
-                    <select
-                      name="lesson"
-                      id="lesson"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={lessonId}
-                      onChange={(e) => {
-                        const selectedLesson = lessons.find(
-                          (l) => l.id === e.target.value
-                        );
-                        if (selectedLesson) {
-                          setLesson(selectedLesson.id);
-                          setTeacherId(selectedLesson.teacherId);
-                        }
-                      }}
-                    >
-                      <option value="" hidden>
-                        Select Lesson
-                      </option>
-                      {lessons.map((lesson) => (
-                        <option value={lesson.id} key={lesson.id}>
-                          {lesson.name}
-                        </option>
-                      ))}
-                    </select>
-
-                    <label
-                      htmlFor="day"
-                      className="block font-medium text-gray-700  text-black dark:text-white"
-                    >
-                      Deadline:
-                    </label>
-                    <input
-                      id="day"
-                      type="date"
-                      placeholder="Day For Schedule"
-                      className="border border-gray-300 rounded-md p-2 w-full  text-black "
-                      value={deadline}
-                      onChange={(e) => setDeadline(e.target.value)}
-                    />
-                    <label
-                      htmlFor="time"
-                      className="block font-medium text-gray-700  text-black dark:text-white"
-                    >
-                      Time:
-                    </label>
-                    <input
-                      id="time"
-                      type="time"
-                      placeholder="Day For Schedule"
-                      className="border border-gray-300 rounded-md p-2 w-full  text-black "
-                      value={time}
-                      onChange={(e) => setTime(e.target.value)}
-                    />
-                    <label
-                      htmlFor="classroom"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Classroom:
-                    </label>
-                    <select
-                      name="classroom"
-                      id="classroom"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={classId}
-                      onChange={(e) => setClass(e.target.value)}
-                    >
-                      <option value="" hidden>
-                        Select Classroom
-                      </option>
-                      {classrooms.map((classroom) => (
-                        <option value={classroom.id} key={classroom.id}>
-                          {classroom.name}
-                        </option>
-                      ))}
-                    </select>
-                  </form>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="btnClose"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="btnSave"
-                    type="button"
-                    onClick={handleUpdate}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Loading..." : "Save Changes"}
-                  </button>
-                </div>
-              </div>
+      <Modal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        title="Update Assignment"
+      >
+        <form className="space-y-3">
+          <div>
+            <label htmlFor="task" className="modal-label">
+              Task
+            </label>
+            <input
+              id="task"
+              type="text"
+              placeholder="Name of task"
+              className="modal-input"
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="lesson" className="modal-label">
+              Lesson
+            </label>
+            <select
+              name="lesson"
+              id="lesson"
+              className="modal-select"
+              value={lessonId}
+              onChange={(e) => {
+                const selectedLesson = lessons.find((l) => l.id === e.target.value);
+                if (selectedLesson) {
+                  setLesson(selectedLesson.id);
+                  setTeacherId(selectedLesson.teacherId);
+                }
+              }}
+            >
+              <option value="" hidden>
+                Select Lesson
+              </option>
+              {lessons.map((lesson) => (
+                <option value={lesson.id} key={lesson.id}>
+                  {lesson.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div>
+              <label htmlFor="day" className="modal-label">
+                Deadline
+              </label>
+              <input
+                id="day"
+                type="date"
+                placeholder="Day For Schedule"
+                className="modal-input"
+                value={deadline}
+                onChange={(e) => setDeadline(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="time" className="modal-label">
+                Time
+              </label>
+              <input
+                id="time"
+                type="time"
+                placeholder="Day For Schedule"
+                className="modal-input"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+          <div>
+            <label htmlFor="classroom" className="modal-label">
+              Classroom
+            </label>
+            <select
+              name="classroom"
+              id="classroom"
+              className="modal-select"
+              value={classId}
+              onChange={(e) => setClass(e.target.value)}
+            >
+              <option value="" hidden>
+                Select Classroom
+              </option>
+              {classrooms.map((classroom) => (
+                <option value={classroom.id} key={classroom.id}>
+                  {classroom.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </form>
+        <div className="mt-6 flex justify-end gap-3">
+          <button className="btnClose" type="button" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+          <button className="btnSave" type="button" onClick={handleUpdate} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Save Changes"}
+          </button>
+        </div>
+      </Modal>
     </>
   );
 };

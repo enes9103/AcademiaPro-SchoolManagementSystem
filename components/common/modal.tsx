@@ -33,9 +33,9 @@ export function Modal({
               </p>
             )}
           </div>
-          <button className="btnClose" onClick={onClose} type="button">
+          {/* <button className="btnClose" onClick={onClose} type="button">
             Close
-          </button>
+          </button> */}
         </div>
         <div className="px-6 py-5">{children}</div>
         {footer && (

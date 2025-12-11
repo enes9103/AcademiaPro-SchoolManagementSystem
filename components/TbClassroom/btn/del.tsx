@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, SyntheticEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
+import { Modal } from "@/components/common/modal";
 
 type Classroom = {
   id: string;
@@ -47,46 +48,30 @@ const Del = ({ classroom }: { classroom: Classroom }) => {
       >
         Delete
       </button>
-      {showModal ? (
-        <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed top-25 right-10 left-10 bottom-25 xsm:left-4 xsm:right-7 lg:left-80 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border border-[var(--border)] rounded-lg shadow-lg relative flex flex-col w-full bg-[var(--surface)] text-[var(--text-primary)] outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-[var(--border)] rounded-t">
-                  <h3 className="text-xl font-semibold">Delete Classroom</h3>
-                </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <p className="">
-                    Are you sure you want to delete {classroom.name}?
-                  </p>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end gap-3 p-6 border-t border-[var(--border)] rounded-b">
-                  <button
-                    className="btnClose"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="btnDel"
-                    type="button"
-                    onClick={() => handleDelete(classroom.id)}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Loading..." : "Save Changes"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="opacity-50 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+      <Modal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        title="Delete Classroom"
+        description={`Are you sure you want to delete ${classroom.name}?`}
+      >
+        <div className="flex justify-end gap-3">
+          <button
+            className="btnClose"
+            type="button"
+            onClick={() => setShowModal(false)}
+          >
+            Close
+          </button>
+          <button
+            className="btnDel"
+            type="button"
+            onClick={() => handleDelete(classroom.id)}
+            disabled={isLoading}
+          >
+            {isLoading ? "Loading..." : "Save Changes"}
+          </button>
+        </div>
+      </Modal>
     </>
   );
 };
