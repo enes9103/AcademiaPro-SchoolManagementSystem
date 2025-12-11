@@ -56,7 +56,11 @@
     },
     "empty": "Görevleri buraya bırakın",
     "due": "Tarih",
-    "delete": "Sil"
+    "delete": "Sil",
+    "confirmTitle": "Görevi sil",
+    "confirmMessage": "Bu görevi silmek istediğinize emin misiniz?",
+    "confirmCancel": "İptal",
+    "confirmDelete": "Sil"
   },
   "table": {
     "noData": "Veri bulunmuyor.",

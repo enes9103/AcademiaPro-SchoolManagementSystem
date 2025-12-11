@@ -23,6 +23,7 @@ export const TasksBoard = () => {
     due: new Date().toISOString().substring(0, 10),
   });
   const [loaded, setLoaded] = useState(false);
+  const [confirmId, setConfirmId] = useState<string | null>(null);
 
   const storageKey = useMemo(
     () => `tasks:${user?.id ?? "guest"}`,
@@ -120,6 +121,7 @@ export const TasksBoard = () => {
 
   const deleteTask = (id: string) => {
     setTasks((prev) => prev.filter((t) => t.id !== id));
+    setConfirmId(null);
   };
 
   return (
@@ -179,8 +181,8 @@ export const TasksBoard = () => {
                 >
                   {status === "done" && (
                     <button
-                      onClick={() => deleteTask(task.id)}
-                      className="absolute left-2 top-2 inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] p-1 text-[var(--text-muted)] hover:text-red"
+                      onClick={() => setConfirmId(task.id)}
+                      className="absolute right-2 top-2 inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] p-1 text-[var(--text-muted)] hover:text-red"
                       aria-label={t("tasks.delete")}
                     >
                       <FiTrash2 className="h-3.5 w-3.5" />
@@ -268,6 +270,26 @@ export const TasksBoard = () => {
           </button>
           <button className="btnSave" type="button" onClick={handleCreate}>
             {t("tasks.form.create")}
+          </button>
+        </div>
+      </Modal>
+
+      <Modal
+        open={Boolean(confirmId)}
+        onClose={() => setConfirmId(null)}
+        title={t("tasks.confirmTitle")}
+      >
+        <p className="text-[var(--text-primary)]">{t("tasks.confirmMessage")}</p>
+        <div className="mt-6 flex justify-end gap-3">
+          <button className="btnClose" type="button" onClick={() => setConfirmId(null)}>
+            {t("tasks.confirmCancel")}
+          </button>
+          <button
+            className="btnDel"
+            type="button"
+            onClick={() => confirmId && deleteTask(confirmId)}
+          >
+            {t("tasks.confirmDelete")}
           </button>
         </div>
       </Modal>

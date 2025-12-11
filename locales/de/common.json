@@ -56,7 +56,11 @@
     },
     "empty": "Aufgaben hier ablegen",
     "due": "Fällig",
-    "delete": "Löschen"
+    "delete": "Löschen",
+    "confirmTitle": "Aufgabe löschen",
+    "confirmMessage": "Möchten Sie diese Aufgabe wirklich löschen?",
+    "confirmCancel": "Abbrechen",
+    "confirmDelete": "Löschen"
   },
   "table": {
     "noData": "Keine Daten verfügbar.",

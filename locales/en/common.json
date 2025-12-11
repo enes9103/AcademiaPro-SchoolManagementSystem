@@ -56,7 +56,11 @@
     },
     "empty": "Drop tasks here",
     "due": "Due",
-    "delete": "Remove"
+    "delete": "Remove",
+    "confirmTitle": "Remove task",
+    "confirmMessage": "Are you sure you want to delete this task?",
+    "confirmCancel": "Cancel",
+    "confirmDelete": "Delete"
   },
   "table": {
     "noData": "There is no data.",
