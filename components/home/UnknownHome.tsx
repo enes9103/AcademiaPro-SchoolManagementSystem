@@ -40,19 +40,25 @@ export const UnknownHome = ({ status }: Props) => {
     },
   ];
 
+  const normalized = status?.toString().trim().toUpperCase();
   const statusKey =
-    status === "ACTIVE"
+    normalized === "ACTIVE"
       ? "active"
-      : status === "IN_ACTIVE"
+      : normalized === "IN_ACTIVE"
         ? "inactive"
-        : status === "BANNED"
+        : normalized === "BANNED"
           ? "banned"
-          : status === "UNKNOW"
+          : normalized === "UNKNOW"
             ? "unknown"
             : null;
 
   const statusLabel = statusKey ? t(`status.${statusKey}`, statusKey) : null;
-
+  const statusClass =
+    statusKey === "active"
+      ? "border-emerald-200 bg-emerald-100 text-emerald-700"
+      : statusKey === "banned"
+        ? "border-red-200 bg-red-100 text-red-700"
+        : "border-amber-200 bg-amber-100 text-amber-700";
   return (
     <div className="surface-panel rounded-3xl px-6 pb-4 pt-5 sm:px-8">
       <div className="mx-auto flex w-full flex-col gap-8">
@@ -62,7 +68,9 @@ export const UnknownHome = ({ status }: Props) => {
               {t("homeUnknown.welcome")}
             </p>
             {statusLabel && (
-              <span className="inline-flex items-center gap-2 rounded-lg border border-red-200 bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-red-700">
+              <span
+                className={`inline-flex items-center gap-2 rounded-lg border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${statusClass}`}
+              >
                 {statusLabel}
               </span>
             )}
