@@ -144,6 +144,13 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
       {
         allowedStatus: [UserStatus.ACTIVE],
         allowedRole: [UserRole.TEACHER],
+        title: "Classroom",
+        path: "/teacher/classroom",
+        icon: <LuSchool2 size={20} />,
+      },
+      {
+        allowedStatus: [UserStatus.ACTIVE],
+        allowedRole: [UserRole.TEACHER],
         title: "Schedule",
         path: "/teacher/schedule",
         icon: <PiCalendarCheck size={20} />,

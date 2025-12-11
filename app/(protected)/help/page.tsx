@@ -142,10 +142,50 @@ const studentItems: Item[] = [
   },
 ];
 
+const teacherItems: Item[] = [
+  {
+    id: "teacher-classroom",
+    title: "Sorumlu olduğum sınıfları nerede görürüm?",
+    summary:
+      "Ders girdiğiniz sınıfları ve öğrencilerini Classroom ekranından inceleyin.",
+    steps: [
+      "Menüden Academy > Classroom (Teacher) seçeneğine tıklayın.",
+      "Sınıf adı, kapasite ve kayıtlı öğrencileri listede görün.",
+      "Arama ile sınıf adına göre filtreleyin.",
+    ],
+    cta: { label: "Classroom sayfasına git", href: "/teacher/classroom" },
+  },
+  {
+    id: "teacher-schedule",
+    title: "Ders programımı nasıl görüntülerim?",
+    summary:
+      "Size atanmış derslerin tarih/saat ve sınıf bilgilerini Schedule ekranından kontrol edin.",
+    steps: [
+      "Menüden Academy > Schedule seçeneğine tıklayın.",
+      "Ders, sınıf, tarih ve saat bilgilerini tablo halinde inceleyin.",
+      "Arama ile ders veya sınıf adına göre filtreleyin; sayfalama ile listede gezinin.",
+    ],
+    cta: { label: "Schedule sayfasına git", href: "/teacher/schedule" },
+  },
+  {
+    id: "teacher-assignments",
+    title: "Ödev ekleme ve yönetme nasıl yapılır?",
+    summary:
+      "Sınıflarınıza ödev tanımlayın, dosya yükleyin ve teslim tarihini ayarlayın.",
+    steps: [
+      "Menüden Academy > Assignments seçeneğine tıklayın.",
+      "Add butonuyla modalı açın, görev adı, ders, sınıf, deadline ve dosyayı ekleyin.",
+      "Save Changes ile kaydedin; mevcut ödevleri tabloda görebilirsiniz.",
+    ],
+    cta: { label: "Assignments sayfasına git", href: "/teacher/assignment" },
+  },
+];
+
 const HelpPage = () => {
   const role = useCurrentRole();
   const list = useMemo(() => {
     if (role === UserRole.STUDENT) return studentItems;
+    if (role === UserRole.TEACHER) return teacherItems;
     return items;
   }, [role]);
 
