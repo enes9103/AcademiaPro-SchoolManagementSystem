@@ -6,11 +6,13 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useSideBarToggle } from "@/hooks/sidebar-toggle";
 import { useCurrentRole } from "@/hooks/use-current-role";
+import { useCurrentStatus } from "@/hooks/use-current-status";
 import { FiChevronRight } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 export const SidebarItems = ({ item }: { item: SideNavItem }) => {
   const { toggleCollapse } = useSideBarToggle();
   const role = useCurrentRole();
+  const status = useCurrentStatus();
   const pathname = usePathname();
   const { t } = useTranslation();
 
@@ -32,6 +34,9 @@ export const SidebarItems = ({ item }: { item: SideNavItem }) => {
 
   // Memeriksa apakah role termasuk dalam allowedRole
   if (!role || !item.allowedRole.includes(role)) {
+    return null;
+  }
+  if (!status || !item.allowedStatus.includes(status)) {
     return null;
   }
   return (

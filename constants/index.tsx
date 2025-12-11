@@ -242,6 +242,14 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
     ],
     menuList: [
       {
+        allowedStatus: [UserStatus.ACTIVE],
+        allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT],
+        title: "Tasks",
+        i18nKey: "nav.items.tasks",
+        path: "/tasks",
+        icon: <FiGrid size={20} />,
+      },
+      {
         allowedStatus: [
           UserStatus.ACTIVE,
           UserStatus.IN_ACTIVE,

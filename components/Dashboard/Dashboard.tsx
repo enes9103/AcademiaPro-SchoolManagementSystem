@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { Task } from "@/components/tasks/taskTypes";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import Link from "next/link";
+import { useCallback } from "react";
 
 interface DashboardProps {
   totalDataCard: {
@@ -67,6 +68,33 @@ const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
       .slice(0, 3);
   }, [tasks]);
 
+  const handleDownload = useCallback(() => {
+    const lines = [
+      `Dashboard Summary`,
+      `Date: ${new Date().toLocaleString()}`,
+      `Lessons: ${totalDataCard.totalLessons ?? 0}`,
+      `Classrooms: ${totalDataCard.totalClassrooms ?? 0}`,
+      `Assignments: ${totalDataCard.totalAssignments ?? 0}`,
+      `Users: ${totalDataCard.totalUsers ?? 0}`,
+      ``,
+      `Upcoming tasks:`,
+      ...upcoming.map(
+        (task, idx) =>
+          `${idx + 1}. ${task.title} - ${new Date(task.due).toLocaleDateString()} (${task.status})`
+      ),
+    ].join("\n");
+
+    const blob = new Blob([lines], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "dashboard-summary.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }, [totalDataCard.totalAssignments, totalDataCard.totalClassrooms, totalDataCard.totalLessons, totalDataCard.totalUsers, upcoming]);
+
   return (
     <>
       <div className="surface-panel mb-6 flex flex-col gap-4 rounded-3xl px-6 py-5 backdrop-blur">
@@ -83,10 +111,10 @@ const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)] dark:text-white">
-              {t("dashboard.ctaNew")}
-            </button>
-            <button className="rounded-full bg-gradient-to-r from-sky-400 to-emerald-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/30">
+            <button
+              onClick={handleDownload}
+              className="rounded-full bg-gradient-to-r from-sky-400 to-emerald-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/30"
+            >
               {t("dashboard.ctaReport")}
             </button>
           </div>
