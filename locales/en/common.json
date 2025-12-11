@@ -2,11 +2,47 @@
   "languages": {
     "en": "English",
     "tr": "Turkish",
-    "de": "German"
+    "de": "German",
+    "label": "Select language"
+  },
+  "nav": {
+    "groups": {
+      "dashboards": "Dashboards",
+      "manage": "Manage",
+      "reports": "Reports",
+      "academy": "Academy",
+      "student": "Student",
+      "others": "Others"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "user": "User",
+      "userList": "User List",
+      "teacherList": "Teacher List",
+      "studentList": "Student List",
+      "academy": "Academy",
+      "classroom": "Classroom",
+      "lessons": "Lessons",
+      "schedule": "Schedule",
+      "assignment": "Assignment",
+      "assignments": "Assignments",
+      "reports": "Reports",
+      "classroomReports": "Classroom Reports",
+      "teacherReports": "Teacher Reports",
+      "studentReports": "Student Reports",
+      "help": "Help",
+      "feedbacks": "Feedbacks"
+    }
   },
   "table": {
     "noData": "There is no data.",
     "search": "Search..."
+  },
+  "header": {
+    "profile": "My Profile",
+    "contacts": "My Contacts",
+    "settings": "Account Settings",
+    "logout": "Log Out"
   },
   "homeUnknown": {
     "welcome": "Start using AkademiaPro",
@@ -15,6 +51,9 @@
     "ctaContact": "Contact Us",
     "ctaDemo": "Request Demo",
     "ctaSupport": "Support",
+    "cardContactTitle": "Join Us",
+    "cardDemoTitle": "Explore Features",
+    "cardSupportTitle": "Get Support",
     "cardContactDesc": "Join AkademiaPro to manage classes, schedules, and assignments in one place. Get in touch to sign up.",
     "cardDemoDesc": "Discover homework management, schedule planning, reports, and more. Request a demo.",
     "cardSupportDesc": "Need help with signup or access? Reach our support team via phone or email."

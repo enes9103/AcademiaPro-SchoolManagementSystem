@@ -2,11 +2,47 @@
   "languages": {
     "en": "Englisch",
     "tr": "Türkisch",
-    "de": "Deutsch"
+    "de": "Deutsch",
+    "label": "Sprache wählen"
+  },
+  "nav": {
+    "groups": {
+      "dashboards": "Dashboards",
+      "manage": "Verwalten",
+      "reports": "Berichte",
+      "academy": "Akademie",
+      "student": "Student",
+      "others": "Weitere"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "user": "Benutzer",
+      "userList": "Benutzerliste",
+      "teacherList": "Lehrerliste",
+      "studentList": "Schülerliste",
+      "academy": "Akademie",
+      "classroom": "Klasse",
+      "lessons": "Unterricht",
+      "schedule": "Plan",
+      "assignment": "Aufgabe",
+      "assignments": "Aufgaben",
+      "reports": "Berichte",
+      "classroomReports": "Klassenberichte",
+      "teacherReports": "Lehrerberichte",
+      "studentReports": "Schülerberichte",
+      "help": "Hilfe",
+      "feedbacks": "Feedback"
+    }
   },
   "table": {
     "noData": "Keine Daten verfügbar.",
     "search": "Suchen..."
+  },
+  "header": {
+    "profile": "Mein Profil",
+    "contacts": "Meine Kontakte",
+    "settings": "Kontoeinstellungen",
+    "logout": "Abmelden"
   },
   "homeUnknown": {
     "welcome": "Mit AkademiaPro starten",
@@ -15,6 +51,9 @@
     "ctaContact": "Kontakt",
     "ctaDemo": "Demo anfragen",
     "ctaSupport": "Support",
+    "cardContactTitle": "Beitreten",
+    "cardDemoTitle": "Features entdecken",
+    "cardSupportTitle": "Support erhalten",
     "cardContactDesc": "Treten Sie AkademiaPro bei und verwalten Sie Klassen, Pläne und Aufgaben an einem Ort. Kontaktieren Sie uns für die Registrierung.",
     "cardDemoDesc": "Entdecken Sie Aufgabenverwaltung, Planungen, Berichte und mehr. Fordern Sie eine Demo an.",
     "cardSupportDesc": "Brauchen Sie Hilfe bei Registrierung oder Zugang? Kontaktieren Sie unser Support-Team per Telefon oder E-Mail."

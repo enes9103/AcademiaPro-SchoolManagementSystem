@@ -3,8 +3,10 @@ import Link from "next/link";
 import { LogoutButton } from "./Logoutbtn";
 import { FiChevronDown, FiUser, FiBookOpen, FiSettings } from "react-icons/fi";
 import { useCurrentUser } from "@/hooks/use-current-user";
+import { useTranslation } from "react-i18next";
 const DropdownUser = () => {
   const user = useCurrentUser();
+  const { t } = useTranslation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
@@ -73,7 +75,7 @@ const DropdownUser = () => {
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <FiUser className="h-5 w-5" />
-              My Profile
+              {t("header.profile")}
             </Link>
           </li>
           <li>
@@ -82,7 +84,7 @@ const DropdownUser = () => {
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <FiBookOpen className="h-5 w-5" />
-              My Contacts
+              {t("header.contacts")}
             </Link>
           </li>
           <li>
@@ -91,7 +93,7 @@ const DropdownUser = () => {
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <FiSettings className="h-5 w-5" />
-              Account Settings
+              {t("header.settings")}
             </Link>
           </li>
         </ul>

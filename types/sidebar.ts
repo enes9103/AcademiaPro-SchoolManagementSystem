@@ -5,6 +5,7 @@ export type SideNavItem = {
   allowedRole: UserRole[];
   allowedStatus: UserStatus[];
   title: string;
+  i18nKey?: string;
   path: string;
   icon?: JSX.Element;
   submenu?: boolean;
@@ -13,6 +14,7 @@ export type SideNavItem = {
 
 export type SideNavItemGroup = {
   title: string;
+  i18nKey?: string;
   allowedRole: UserRole[];
   allowedStatus: UserStatus[];
   menuList: SideNavItem[];

@@ -7,10 +7,12 @@ import classNames from "classnames";
 import { useSideBarToggle } from "@/hooks/sidebar-toggle";
 import { useCurrentRole } from "@/hooks/use-current-role";
 import { FiChevronRight } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 export const SidebarItems = ({ item }: { item: SideNavItem }) => {
   const { toggleCollapse } = useSideBarToggle();
   const role = useCurrentRole();
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   const [subMenuOpen, setSubMenuOpen] = useState(false);
 
@@ -44,7 +46,7 @@ export const SidebarItems = ({ item }: { item: SideNavItem }) => {
             {!toggleCollapse && (
               <>
                 <span className="ml-3 text-base leading-6 font-semibold">
-                  {item.title}
+                  {t(item.i18nKey ?? item.title)}
                 </span>
                 <FiChevronRight
                   className={`${subMenuOpen ? "rotate-90" : ""} ml-auto h-4 w-4 text-[var(--text-primary)] transition`}
@@ -64,20 +66,20 @@ export const SidebarItems = ({ item }: { item: SideNavItem }) => {
                     }`}
                   >
                     <button
-                      className={`${
-                        subItem.path === pathname
-                          ? "group relative flex items-center gap-2.5 rounded-lg px-3 py-2 font-semibold text-[var(--text-primary)]"
-                          : "group relative flex items-center gap-2.5 rounded-lg px-3 py-2 font-medium text-[var(--text-primary)] duration-300 ease-in-out"
-                      }`}
-                    >
-                      <div>{subItem.icon}</div>
-                      {!toggleCollapse && (
-                        <span className="ml-3 w-200 leading-6 font-semibold">
-                          {subItem.title}
-                        </span>
-                      )}
-                    </button>
-                  </Link>
+                    className={`${
+                      subItem.path === pathname
+                        ? "group relative flex items-center gap-2.5 rounded-lg px-3 py-2 font-semibold text-[var(--text-primary)]"
+                        : "group relative flex items-center gap-2.5 rounded-lg px-3 py-2 font-medium text-[var(--text-primary)] duration-300 ease-in-out"
+                    }`}
+                  >
+                    <div>{subItem.icon}</div>
+                    {!toggleCollapse && (
+                      <span className="ml-3 w-200 leading-6 font-semibold">
+                        {t(subItem.i18nKey ?? subItem.title)}
+                      </span>
+                    )}
+                  </button>
+                </Link>
                 ))}
               </div>
             </div>
@@ -98,7 +100,7 @@ export const SidebarItems = ({ item }: { item: SideNavItem }) => {
             <div className="min-w-[20px]">{item.icon}</div>
             {!toggleCollapse && (
               <span className="ml-3 w-200 leading-6 font-semibold">
-                {item.title}
+                {t(item.i18nKey ?? item.title)}
               </span>
             )}
           </button>

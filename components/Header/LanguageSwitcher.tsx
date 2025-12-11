@@ -34,7 +34,7 @@ export const LanguageSwitcher = () => {
         value={lang}
         onChange={(e) => onChange(e.target.value)}
         className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 py-1.5 pr-8 text-sm font-medium text-[var(--text-primary)] shadow-sm hover:border-[var(--border-strong)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
-        aria-label="Select language"
+        aria-label={t("languages.label", "Select language")}
       >
         {LANG_OPTIONS.map((opt) => (
           <option key={opt.code} value={opt.code}>

@@ -5,11 +5,13 @@ import { SidebarItems } from "./SidebarItems";
 import classNames from "classnames";
 import { useCurrentRole } from "@/hooks/use-current-role";
 import { useCurrentStatus } from "@/hooks/use-current-status";
+import { useTranslation } from "react-i18next";
 
 const SideBarMenuGroup = ({ menuGroup }: { menuGroup: SideNavItemGroup }) => {
   const role = useCurrentRole();
   const status = useCurrentStatus();
   const { toggleCollapse } = useSideBarToggle();
+  const { t } = useTranslation();
 
   const menuGroupTitleSyle = classNames(
     "ml-4 text-sm font-semibold text-[var(--text-muted)]",
@@ -27,7 +29,7 @@ const SideBarMenuGroup = ({ menuGroup }: { menuGroup: SideNavItemGroup }) => {
   return (
     <>
       <h3 className={menuGroupTitleSyle}>
-        {!toggleCollapse ? menuGroup.title : "..."}
+        {!toggleCollapse ? t(menuGroup.i18nKey ?? menuGroup.title) : "..."}
       </h3>
       {menuGroup.menuList?.map((item, index) => {
         return <SidebarItems key={index} item={item} />;
