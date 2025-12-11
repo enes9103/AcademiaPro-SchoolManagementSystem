@@ -19,6 +19,7 @@ type DataTableProps<TData> = {
   enableSearch?: boolean;
   searchPlaceholder?: string;
   footer?: React.ReactNode;
+  searchAddon?: React.ReactNode;
 };
 
 export function DataTable<TData>({
@@ -30,6 +31,7 @@ export function DataTable<TData>({
   enableSearch,
   searchPlaceholder = "Search...",
   footer,
+  searchAddon,
 }: DataTableProps<TData>) {
   const [query, setQuery] = useState("");
 
@@ -57,7 +59,10 @@ export function DataTable<TData>({
     <>
       <TableShell label={label} title={title} actions={actions}>
         {enableSearch && (
-          <div className="flex items-center justify-end border-b border-[var(--border)] px-4 py-2">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border)] px-4 py-2">
+            {searchAddon && (
+              <div className="flex flex-wrap items-center gap-2">{searchAddon}</div>
+            )}
             <input
               type="text"
               value={query}

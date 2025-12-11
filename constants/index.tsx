@@ -1,6 +1,6 @@
 import { SideNavItemGroup } from "@/types/sidebar";
 import { BsEnvelope, BsHouseDoor, BsQuestionCircle } from "react-icons/bs";
-import { FiUser, FiBook } from "react-icons/fi";
+import { FiUser, FiBook, FiBarChart2, FiGrid, FiUserCheck, FiUsers } from "react-icons/fi";
 import { PiUserListLight, PiCalendarCheck } from "react-icons/pi";
 import { IoSchoolOutline } from "react-icons/io5";
 import { LuSchool2 } from "react-icons/lu";
@@ -93,6 +93,44 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
             title: "Assignment",
             path: "/admin/manage/assignment",
             icon: <MdOutlineAssignment size={20} />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Reports",
+    allowedRole: [UserRole.ADMIN],
+    allowedStatus: [UserStatus.ACTIVE],
+    menuList: [
+      {
+        allowedStatus: [UserStatus.ACTIVE],
+        allowedRole: [UserRole.ADMIN],
+        title: "Reports",
+        path: "/admin/reports",
+        icon: <FiBarChart2 size={20} />,
+        submenu: true,
+        subMenuItems: [
+          {
+            allowedStatus: [UserStatus.ACTIVE],
+            allowedRole: [UserRole.ADMIN],
+            title: "Classroom Reports",
+            path: "/admin/reports/classrooms",
+            icon: <FiGrid size={20} />,
+          },
+          {
+            allowedStatus: [UserStatus.ACTIVE],
+            allowedRole: [UserRole.ADMIN],
+            title: "Teacher Reports",
+            path: "/admin/reports/teachers",
+            icon: <FiUserCheck size={20} />,
+          },
+          {
+            allowedStatus: [UserStatus.ACTIVE],
+            allowedRole: [UserRole.ADMIN],
+            title: "Student Reports",
+            path: "/admin/reports/students",
+            icon: <FiUsers size={20} />,
           },
         ],
       },
