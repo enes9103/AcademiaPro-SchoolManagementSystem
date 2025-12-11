@@ -26,8 +26,8 @@ export const TasksBoard = () => {
   const [confirmId, setConfirmId] = useState<string | null>(null);
 
   const storageKey = useMemo(
-    () => `tasks:${user?.id ?? "guest"}`,
-    [user?.id]
+    () => `tasks:${user?.id ?? "guest"}:${user?.role ?? "guest"}`,
+    [user?.id, user?.role]
   );
 
   useEffect(() => {

@@ -248,12 +248,7 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
           UserStatus.BANNED,
           UserStatus.UNKNOW,
         ],
-        allowedRole: [
-          UserRole.ADMIN,
-          UserRole.TEACHER,
-          UserRole.STUDENT,
-          UserRole.UNKNOW,
-        ],
+        allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT],
         title: "Tasks",
         i18nKey: "nav.items.tasks",
         path: "/tasks",

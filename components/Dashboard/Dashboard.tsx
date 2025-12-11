@@ -24,8 +24,8 @@ const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const storageKey = useMemo(
-    () => `tasks:${user?.id ?? "guest"}`,
-    [user?.id]
+    () => `tasks:${user?.id ?? "guest"}:${user?.role ?? "guest"}`,
+    [user?.id, user?.role]
   );
 
   useEffect(() => {
