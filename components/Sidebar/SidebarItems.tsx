@@ -54,7 +54,7 @@ export const SidebarItems = ({ item }: { item: SideNavItem }) => {
           </button>
           {subMenuOpen && !toggleCollapse && (
             <div>
-              <div className="ml-3 mr-3 grid gap-y-2 rounded-2xl border-[var(--border)] bg-[var(--surface)] px-6 py-4 leading-5 text-[var(--text-primary)] transition">
+              <div className="ml-3 mr-3 grid gap-y-2 rounded-2xl border-[var(--border)] bg-[var(--surface)] px-4 py-4 leading-5 text-[var(--text-primary)] transition">
                 {item.subMenuItems?.map((subItem, idx) => (
                   <Link
                     key={idx}

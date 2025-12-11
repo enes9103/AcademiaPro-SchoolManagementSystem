@@ -33,10 +33,8 @@ const StudentReportsPage = async () => {
   }));
 
   return (
-    <div className="surface-panel min-h-screen px-4 py-12">
-      <div className="mx-auto w-full max-w-6xl">
-        <StudentReportsTable rows={rows} />
-      </div>
+    <div className="mx-auto w-full">
+      <StudentReportsTable rows={rows} />
     </div>
   );
 };
