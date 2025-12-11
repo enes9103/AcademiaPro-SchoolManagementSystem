@@ -19,7 +19,7 @@ export const StudentReportDetail = ({
   const { t } = useTranslation();
   return (
     <div className="surface-panel rounded-3xl px-6 pb-4 pt-5 sm:px-8">
-      <div className="mx-auto w-full max-w-6xl space-y-6">
+      <div className="mx-auto w-full space-y-6">
         <div className="flex items-center gap-3">
           <Link
             href="/admin/reports/students"

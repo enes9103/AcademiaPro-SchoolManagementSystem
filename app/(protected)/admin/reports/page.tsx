@@ -9,7 +9,7 @@ const ReportsIndex = () => {
 
   return (
     <div className="surface-panel rounded-3xl px-6 pb-4 pt-5 sm:px-8">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">
+      <div className="mx-auto flex w-full flex-col gap-6">
         <header className="space-y-2">
           <p className="text-sm uppercase tracking-[0.25em] text-[var(--text-muted)]">
             Reports
