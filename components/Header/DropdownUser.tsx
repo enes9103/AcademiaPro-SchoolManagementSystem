@@ -50,15 +50,12 @@ const DropdownUser = () => {
           <span className="block text-xs">{user?.role}</span>
         </span>
 
-        <span className="h-12 w-12 rounded-full">
+        <span className="h-10 w-10 rounded-full overflow-hidden bg-[var(--surface-strong)]">
           <Image
             width={112}
             height={112}
             src={"/user.svg"}
-            style={{
-              width: "auto",
-              height: "auto",
-            }}
+            className="h-full w-full object-cover"
             alt="User"
           />
         </span>

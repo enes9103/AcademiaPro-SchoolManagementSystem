@@ -67,7 +67,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       <div className="flex items-center justify-between gap-2 px-4 py-5 lg:py-4 lg:px-2 mb-4 lg:mb-10">
         <Link
-          href="/"
+          href="/home"
           className="flex items-center gap-3 text-[var(--text-primary)]"
         >
           <Image
