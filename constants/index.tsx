@@ -158,6 +158,34 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
     ],
   },
   {
+    title: "Student",
+    allowedRole: [UserRole.STUDENT],
+    allowedStatus: [UserStatus.ACTIVE],
+    menuList: [
+      {
+        allowedStatus: [UserStatus.ACTIVE],
+        allowedRole: [UserRole.STUDENT],
+        title: "Classroom",
+        path: "/student/classroom",
+        icon: <LuSchool2 size={20} />,
+      },
+      {
+        allowedStatus: [UserStatus.ACTIVE],
+        allowedRole: [UserRole.STUDENT],
+        title: "Assignments",
+        path: "/student/assignments",
+        icon: <MdOutlineAssignment size={20} />,
+      },
+      {
+        allowedStatus: [UserStatus.ACTIVE],
+        allowedRole: [UserRole.STUDENT],
+        title: "Schedule",
+        path: "/student/schedule",
+        icon: <PiCalendarCheck size={20} />,
+      },
+    ],
+  },
+  {
     title: "Others",
     allowedRole: [
       UserRole.ADMIN,
