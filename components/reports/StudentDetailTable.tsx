@@ -2,6 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/common/data-table";
+import { useTranslation } from "react-i18next";
 
 export type StudentDetailRow = {
   id: string;
@@ -12,23 +13,23 @@ export type StudentDetailRow = {
   scheduleTime: string | null;
 };
 
-const columns: ColumnDef<StudentDetailRow>[] = [
-  { header: "Sınıf", accessorKey: "className" },
-  { header: "Ders", accessorKey: "lessonName" },
-  { header: "Öğretmen", accessorKey: "teacherName" },
-  { header: "Tarih", accessorKey: "scheduleDate" },
-  { header: "Saat", accessorKey: "scheduleTime" },
-];
-
 export const StudentDetailTable = ({ rows }: { rows: StudentDetailRow[] }) => {
+  const { t } = useTranslation();
+  const columns: ColumnDef<StudentDetailRow>[] = [
+    { header: t("reports.studentDetail.headers.class"), accessorKey: "className" },
+    { header: t("reports.studentDetail.headers.lesson"), accessorKey: "lessonName" },
+    { header: t("reports.studentDetail.headers.teacher"), accessorKey: "teacherName" },
+    { header: t("reports.studentDetail.headers.date"), accessorKey: "scheduleDate" },
+    { header: t("reports.studentDetail.headers.time"), accessorKey: "scheduleTime" },
+  ];
   return (
     <DataTable
       columns={columns}
       data={rows}
-      label="Reports"
-      title="Sınıf / Ders Kayıtları"
+      label={t("reports.students.label")}
+      title={t("reports.studentDetail.title")}
       enableSearch
-      searchPlaceholder="Sınıf veya ders ara..."
+      searchPlaceholder={t("reports.studentDetail.search")}
       useUrlPagination
       pageSize={10}
     />

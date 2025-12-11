@@ -20,11 +20,11 @@ export const ClassroomStudentsTable = ({
 }) => {
   const { t } = useTranslation();
   const columns: ColumnDef<ClassroomStudentRow>[] = [
-    { header: t("reports.students.title"), accessorKey: "name" },
+    { header: t("reports.common.name"), accessorKey: "name" },
     { header: t("feedback.form.email"), accessorKey: "email" },
     { header: t("reports.common.status"), accessorKey: "status" },
     {
-      header: "Actions",
+      header: t("reports.common.actions"),
       cell: ({ row }) => (
         <Link
           href={`/admin/reports/students/${row.original.id}`}

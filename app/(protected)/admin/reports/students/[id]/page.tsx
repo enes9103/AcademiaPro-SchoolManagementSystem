@@ -1,11 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FiArrowLeft } from "react-icons/fi";
 import { db } from "@/lib/db";
-import {
-  StudentDetailRow,
-  StudentDetailTable,
-} from "@/components/reports/StudentDetailTable";
+import { StudentDetailRow } from "@/components/reports/StudentDetailTable";
+import { StudentReportDetail } from "@/components/reports/StudentReportDetail";
 
 const StudentReportDetailPage = async ({
   params,
@@ -84,30 +80,12 @@ const StudentReportDetailPage = async ({
   });
 
   return (
-    <div className="surface-panel rounded-3xl px-6 pb-4 pt-5 sm:px-8">
-      <div className="mx-auto w-full max-w-6xl space-y-6">
-        <div className="flex items-center gap-3">
-          <Link
-            href="/admin/reports/students"
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm font-semibold text-[var(--text-primary)] hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)]"
-          >
-            <FiArrowLeft className="h-4 w-4" />
-            Back
-          </Link>
-          <div>
-            <h1 className="text-2xl font-bold text-[var(--text-primary)]">
-              {student.name}
-            </h1>
-            <p className="text-sm text-[var(--text-muted)]">
-              {student.user?.email ?? "E-posta yok"} •{" "}
-              {student.user?.status ?? ""}
-            </p>
-          </div>
-        </div>
-
-        <StudentDetailTable rows={rows} />
-      </div>
-    </div>
+    <StudentReportDetail
+      name={student.name}
+      email={student.user?.email}
+      status={student.user?.status}
+      rows={rows}
+    />
   );
 };
 

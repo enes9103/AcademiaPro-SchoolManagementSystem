@@ -270,7 +270,9 @@
     "common": {
       "detail": "Details",
       "status": "Status:",
-      "capacity": "Kapazität:"
+      "capacity": "Kapazität:",
+      "name": "Name",
+      "actions": "Aktionen"
     },
     "classrooms": {
       "label": "Berichte",
@@ -302,6 +304,13 @@
     "teacherDetail": {
       "back": "Zurück",
       "scheduleTitle": "Unterrichtspläne",
+      "search": "Unterricht oder Klasse suchen...",
+      "presets": {
+        "today": "Heute",
+        "week": "Diese Woche",
+        "month": "Dieser Monat",
+        "year": "Dieses Jahr"
+      },
       "headers": {
         "lesson": "Unterricht",
         "classroom": "Klasse",
@@ -314,6 +323,8 @@
     "studentDetail": {
       "back": "Zurück",
       "title": "Klassen- / Unterrichtsdaten",
+      "search": "Klasse oder Unterricht suchen...",
+      "noEmail": "Keine E-Mail",
       "headers": {
         "class": "Klasse",
         "lesson": "Unterricht",

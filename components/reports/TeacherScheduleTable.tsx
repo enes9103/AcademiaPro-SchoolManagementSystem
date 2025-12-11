@@ -77,20 +77,20 @@ export function TeacherScheduleTable({ rows }: { rows: TeacherScheduleRow[] }) {
 
   const presetButtons: { label: string; value: Preset }[] = [
     { label: t("reports.classrooms.filters.all"), value: "all" },
-    { label: t("reports.teacherDetail.headers.date") + " - Today", value: "today" },
-    { label: "Week", value: "week" },
-    { label: "Month", value: "month" },
-    { label: "Year", value: "year" },
+    { label: t("reports.teacherDetail.presets.today"), value: "today" },
+    { label: t("reports.teacherDetail.presets.week"), value: "week" },
+    { label: t("reports.teacherDetail.presets.month"), value: "month" },
+    { label: t("reports.teacherDetail.presets.year"), value: "year" },
   ];
 
   return (
     <DataTable
       columns={columns}
       data={filteredRows}
-      label="Reports"
-      title="Ders Programı"
+      label={t("reports.teachers.label")}
+      title={t("reports.teacherDetail.scheduleTitle")}
       enableSearch
-      searchPlaceholder="Ders veya sınıf ara..."
+      searchPlaceholder={t("reports.teacherDetail.search")}
       useUrlPagination
       pageSize={10}
       searchAddon={

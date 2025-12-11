@@ -270,7 +270,9 @@
     "common": {
       "detail": "Detay",
       "status": "Durum:",
-      "capacity": "Kapasite:"
+      "capacity": "Kapasite:",
+      "name": "İsim",
+      "actions": "İşlemler"
     },
     "classrooms": {
       "label": "Raporlar",
@@ -302,6 +304,13 @@
     "teacherDetail": {
       "back": "Geri",
       "scheduleTitle": "Ders Programları",
+      "search": "Ders veya sınıf ara...",
+      "presets": {
+        "today": "Bugün",
+        "week": "Bu Hafta",
+        "month": "Bu Ay",
+        "year": "Bu Yıl"
+      },
       "headers": {
         "lesson": "Ders",
         "classroom": "Sınıf",
@@ -314,6 +323,8 @@
     "studentDetail": {
       "back": "Geri",
       "title": "Sınıf / Ders Kayıtları",
+      "search": "Sınıf veya ders ara...",
+      "noEmail": "E-posta yok",
       "headers": {
         "class": "Sınıf",
         "lesson": "Ders",
