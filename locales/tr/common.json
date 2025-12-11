@@ -224,5 +224,62 @@
       "phoneDesc": "Hafta içi 09:00-18:00 arası arayabilirsiniz.",
       "phoneAction": "+62 822 9440 0729"
     }
+  },
+  "reports": {
+    "common": {
+      "detail": "Detay",
+      "status": "Durum:",
+      "capacity": "Kapasite:"
+    },
+    "classrooms": {
+      "label": "Raporlar",
+      "title": "Sınıf Raporları",
+      "search": "Sınıf ara...",
+      "filters": {
+        "all": "Tümü",
+        "lt20": "< 20",
+        "20-30": "20 - 30",
+        "gt30": "> 30"
+      }
+    },
+    "teachers": {
+      "label": "Raporlar",
+      "title": "Öğretmen Raporları",
+      "search": "Öğretmen ara..."
+    },
+    "students": {
+      "label": "Raporlar",
+      "title": "Öğrenci Raporları",
+      "search": "Öğrenci ara..."
+    },
+    "classroomDetail": {
+      "back": "Geri",
+      "teachers": "Sorumlu Öğretmen(ler)",
+      "students": "Öğrenciler",
+      "noTeacher": "Atanmış öğretmen yok"
+    },
+    "teacherDetail": {
+      "back": "Geri",
+      "scheduleTitle": "Ders Programları",
+      "headers": {
+        "lesson": "Ders",
+        "classroom": "Sınıf",
+        "date": "Tarih",
+        "time": "Saat",
+        "students": "Öğrenci",
+        "capacity": "Kapasite"
+      }
+    },
+    "studentDetail": {
+      "back": "Geri",
+      "title": "Sınıf / Ders Kayıtları",
+      "headers": {
+        "class": "Sınıf",
+        "lesson": "Ders",
+        "teacher": "Öğretmen",
+        "date": "Tarih",
+        "time": "Saat"
+      }
+    }
   }
 }

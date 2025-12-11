@@ -4,6 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { DataTable } from "../common/data-table";
+import { useTranslation } from "react-i18next";
 
 type ClassroomReportRow = {
   id: string;
@@ -13,13 +14,14 @@ type ClassroomReportRow = {
 };
 
 const capacityFilters = [
-  { value: "all", label: "Tümü" },
-  { value: "lt20", label: "< 20" },
-  { value: "20-30", label: "20 - 30" },
-  { value: "gt30", label: "> 30" },
+  { value: "all", label: "all" },
+  { value: "lt20", label: "lt20" },
+  { value: "20-30", label: "20-30" },
+  { value: "gt30", label: "gt30" },
 ];
 
 export function ClassroomReportsTable({ rows }: { rows: ClassroomReportRow[] }) {
+  const { t } = useTranslation();
   const [capacity, setCapacity] = useState<string>("all");
 
   const filteredRows = useMemo(() => {
@@ -32,9 +34,9 @@ export function ClassroomReportsTable({ rows }: { rows: ClassroomReportRow[] }) 
   }, [capacity, rows]);
 
   const columns: ColumnDef<ClassroomReportRow>[] = [
-    { header: "Sınıf", accessorKey: "name" },
-    { header: "Kapasite", accessorKey: "cap" },
-    { header: "Öğrenci Sayısı", accessorKey: "students" },
+    { header: t("dashboard.cards.classrooms"), accessorKey: "name" },
+    { header: t("reports.common.capacity"), accessorKey: "cap" },
+    { header: t("reports.students.title"), accessorKey: "students" },
     {
       header: "Actions",
       cell: ({ row }) => (
@@ -42,7 +44,7 @@ export function ClassroomReportsTable({ rows }: { rows: ClassroomReportRow[] }) 
           href={`/admin/reports/classrooms/${row.original.id}`}
           className="btnEdt inline-flex items-center justify-center text-sm"
         >
-          Detail
+          {t("reports.common.detail")}
         </Link>
       ),
     },
@@ -52,14 +54,14 @@ export function ClassroomReportsTable({ rows }: { rows: ClassroomReportRow[] }) 
     <DataTable
       columns={columns}
       data={filteredRows}
-      label="Reports"
-      title="Classroom Reports"
+      label={t("reports.classrooms.label")}
+      title={t("reports.classrooms.title")}
       enableSearch
-      searchPlaceholder="Sınıf ara..."
+      searchPlaceholder={t("reports.classrooms.search")}
       searchAddon={
         <>
           <span className="text-sm font-semibold text-[var(--text-primary)]">
-            Kapasite:
+            {t("reports.common.capacity")}
           </span>
           <div className="flex flex-wrap gap-2">
             {capacityFilters.map((opt) => (
@@ -73,7 +75,7 @@ export function ClassroomReportsTable({ rows }: { rows: ClassroomReportRow[] }) 
                     : "border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)] hover:border-[var(--border-strong)]"
                 }`}
               >
-                {opt.label}
+                {t(`reports.classrooms.filters.${opt.value}`)}
               </button>
             ))}
           </div>

@@ -224,5 +224,62 @@
       "phoneDesc": "Erreichbar an Werktagen.",
       "phoneAction": "+62 822 9440 0729"
     }
+  },
+  "reports": {
+    "common": {
+      "detail": "Details",
+      "status": "Status:",
+      "capacity": "Kapazität:"
+    },
+    "classrooms": {
+      "label": "Berichte",
+      "title": "Klassenberichte",
+      "search": "Klasse suchen...",
+      "filters": {
+        "all": "Alle",
+        "lt20": "< 20",
+        "20-30": "20 - 30",
+        "gt30": "> 30"
+      }
+    },
+    "teachers": {
+      "label": "Berichte",
+      "title": "Lehrerberichte",
+      "search": "Lehrer suchen..."
+    },
+    "students": {
+      "label": "Berichte",
+      "title": "Schülerberichte",
+      "search": "Schüler suchen..."
+    },
+    "classroomDetail": {
+      "back": "Zurück",
+      "teachers": "Zugewiesene Lehrer",
+      "students": "Schüler",
+      "noTeacher": "Kein Lehrer zugewiesen"
+    },
+    "teacherDetail": {
+      "back": "Zurück",
+      "scheduleTitle": "Unterrichtspläne",
+      "headers": {
+        "lesson": "Unterricht",
+        "classroom": "Klasse",
+        "date": "Datum",
+        "time": "Zeit",
+        "students": "Schüler",
+        "capacity": "Kapazität"
+      }
+    },
+    "studentDetail": {
+      "back": "Zurück",
+      "title": "Klassen- / Unterrichtsdaten",
+      "headers": {
+        "class": "Klasse",
+        "lesson": "Unterricht",
+        "teacher": "Lehrer",
+        "date": "Datum",
+        "time": "Zeit"
+      }
+    }
   }
 }

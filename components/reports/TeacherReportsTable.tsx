@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { DataTable } from "../common/data-table";
 import { UserStatus } from "@prisma/client";
+import { useTranslation } from "react-i18next";
 
 type TeacherReportRow = {
   id: string;
@@ -16,15 +17,16 @@ type TeacherReportRow = {
 };
 
 const statusFilters: { value: "all" | UserStatus; label: string }[] = [
-  { value: "all", label: "Tümü" },
-  { value: UserStatus.ACTIVE, label: "Active" },
-  { value: UserStatus.IN_ACTIVE, label: "Inactive" },
-  { value: UserStatus.BANNED, label: "Banned" },
-  { value: UserStatus.UNKNOW, label: "Unknown" },
+  { value: "all", label: "all" },
+  { value: UserStatus.ACTIVE, label: "active" },
+  { value: UserStatus.IN_ACTIVE, label: "inactive" },
+  { value: UserStatus.BANNED, label: "banned" },
+  { value: UserStatus.UNKNOW, label: "unknown" },
 ];
 
 export function TeacherReportsTable({ rows }: { rows: TeacherReportRow[] }) {
   const [status, setStatus] = useState<"all" | UserStatus>("all");
+  const { t } = useTranslation();
 
   const filteredRows = useMemo(() => {
     if (status === "all") return rows;
@@ -32,11 +34,11 @@ export function TeacherReportsTable({ rows }: { rows: TeacherReportRow[] }) {
   }, [rows, status]);
 
   const columns: ColumnDef<TeacherReportRow>[] = [
-    { header: "Öğretmen", accessorKey: "name" },
-    { header: "E-posta", accessorKey: "email" },
-    { header: "Cinsiyet", accessorKey: "gender" },
-    { header: "Durum", accessorKey: "status" },
-    { header: "Ders Sayısı", accessorKey: "lessons" },
+    { header: t("dashboard.cards.users"), accessorKey: "name" },
+    { header: t("feedback.form.email"), accessorKey: "email" },
+    { header: "Gender", accessorKey: "gender" },
+    { header: t("reports.common.status"), accessorKey: "status" },
+    { header: t("dashboard.cards.lessons"), accessorKey: "lessons" },
     {
       header: "Actions",
       cell: ({ row }) => (
@@ -44,7 +46,7 @@ export function TeacherReportsTable({ rows }: { rows: TeacherReportRow[] }) {
           href={`/admin/reports/teachers/${row.original.id}`}
           className="btnEdt inline-flex items-center justify-center text-sm"
         >
-          Detail
+          {t("reports.common.detail")}
         </Link>
       ),
     },
@@ -54,14 +56,14 @@ export function TeacherReportsTable({ rows }: { rows: TeacherReportRow[] }) {
     <DataTable
       columns={columns}
       data={filteredRows}
-      label="Reports"
-      title="Teacher Reports"
+      label={t("reports.teachers.label")}
+      title={t("reports.teachers.title")}
       enableSearch
-      searchPlaceholder="Öğretmen ara..."
+      searchPlaceholder={t("reports.teachers.search")}
       searchAddon={
         <>
           <span className="text-sm font-semibold text-[var(--text-primary)]">
-            Durum:
+            {t("reports.common.status")}
           </span>
           <div className="flex flex-wrap gap-2">
             {statusFilters.map((opt) => (
@@ -75,7 +77,9 @@ export function TeacherReportsTable({ rows }: { rows: TeacherReportRow[] }) {
                     : "border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)] hover:border-[var(--border-strong)]"
                 }`}
               >
-                {opt.label}
+                {opt.value === "all"
+                  ? t("reports.classrooms.filters.all")
+                  : opt.label}
               </button>
             ))}
           </div>

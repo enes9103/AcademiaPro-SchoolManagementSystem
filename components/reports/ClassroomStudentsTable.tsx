@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { UserStatus } from "@prisma/client";
 import { DataTable } from "@/components/common/data-table";
+import { useTranslation } from "react-i18next";
 
 export type ClassroomStudentRow = {
   id: string;
@@ -17,10 +18,11 @@ export const ClassroomStudentsTable = ({
 }: {
   rows: ClassroomStudentRow[];
 }) => {
+  const { t } = useTranslation();
   const columns: ColumnDef<ClassroomStudentRow>[] = [
-    { header: "Öğrenci", accessorKey: "name" },
-    { header: "E-posta", accessorKey: "email" },
-    { header: "Durum", accessorKey: "status" },
+    { header: t("reports.students.title"), accessorKey: "name" },
+    { header: t("feedback.form.email"), accessorKey: "email" },
+    { header: t("reports.common.status"), accessorKey: "status" },
     {
       header: "Actions",
       cell: ({ row }) => (
@@ -28,7 +30,7 @@ export const ClassroomStudentsTable = ({
           href={`/admin/reports/students/${row.original.id}`}
           className="btnEdt inline-flex items-center justify-center text-sm"
         >
-          Detail
+          {t("reports.common.detail")}
         </Link>
       ),
     },
@@ -38,10 +40,10 @@ export const ClassroomStudentsTable = ({
     <DataTable
       columns={columns}
       data={rows}
-      label="Reports"
-      title="Öğrenciler"
+      label={t("reports.classroomDetail.students")}
+      title={t("reports.classroomDetail.students")}
       enableSearch
-      searchPlaceholder="Öğrenci ara..."
+      searchPlaceholder={t("reports.students.search")}
       useUrlPagination
       pageSize={10}
     />

@@ -224,5 +224,62 @@
       "phoneDesc": "Reach us by phone on business days.",
       "phoneAction": "+62 822 9440 0729"
     }
+  },
+  "reports": {
+    "common": {
+      "detail": "Detail",
+      "status": "Status:",
+      "capacity": "Capacity:"
+    },
+    "classrooms": {
+      "label": "Reports",
+      "title": "Classroom Reports",
+      "search": "Search classroom...",
+      "filters": {
+        "all": "All",
+        "lt20": "< 20",
+        "20-30": "20 - 30",
+        "gt30": "> 30"
+      }
+    },
+    "teachers": {
+      "label": "Reports",
+      "title": "Teacher Reports",
+      "search": "Search teacher..."
+    },
+    "students": {
+      "label": "Reports",
+      "title": "Student Reports",
+      "search": "Search student..."
+    },
+    "classroomDetail": {
+      "back": "Back",
+      "teachers": "Assigned Teacher(s)",
+      "students": "Students",
+      "noTeacher": "No teacher assigned"
+    },
+    "teacherDetail": {
+      "back": "Back",
+      "scheduleTitle": "Class Schedules",
+      "headers": {
+        "lesson": "Lesson",
+        "classroom": "Classroom",
+        "date": "Date",
+        "time": "Time",
+        "students": "Students",
+        "capacity": "Capacity"
+      }
+    },
+    "studentDetail": {
+      "back": "Back",
+      "title": "Class / Lesson Records",
+      "headers": {
+        "class": "Classroom",
+        "lesson": "Lesson",
+        "teacher": "Teacher",
+        "date": "Date",
+        "time": "Time"
+      }
+    }
   }
 }

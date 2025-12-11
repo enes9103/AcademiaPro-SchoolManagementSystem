@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/common/data-table";
 import { format } from "date-fns";
+import { useTranslation } from "react-i18next";
 
 export type TeacherScheduleRow = {
   id: string;
@@ -21,21 +22,20 @@ export function TeacherScheduleTable({ rows }: { rows: TeacherScheduleRow[] }) {
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
   const [preset, setPreset] = useState<Preset>("all");
+  const { t } = useTranslation();
 
   const columns: ColumnDef<TeacherScheduleRow>[] = [
-    { header: "Ders", accessorKey: "lessonName" },
-    { header: "Sınıf", accessorKey: "className" },
+    { header: t("reports.teacherDetail.headers.lesson"), accessorKey: "lessonName" },
+    { header: t("reports.teacherDetail.headers.classroom"), accessorKey: "className" },
     {
-      header: "Tarih",
-      cell: ({ row }) =>
-        format(new Date(row.original.date), "dd.MM.yyyy"),
+      header: t("reports.teacherDetail.headers.date"),
+      cell: ({ row }) => format(new Date(row.original.date), "dd.MM.yyyy"),
     },
-    { header: "Saat", accessorKey: "time" },
-    { header: "Öğrenci", accessorKey: "students" },
+    { header: t("reports.teacherDetail.headers.time"), accessorKey: "time" },
+    { header: t("reports.teacherDetail.headers.students"), accessorKey: "students" },
     {
-      header: "Kapasite",
-      cell: ({ row }) =>
-        row.original.capacity ? row.original.capacity : "—",
+      header: t("reports.teacherDetail.headers.capacity"),
+      cell: ({ row }) => (row.original.capacity ? row.original.capacity : "—"),
     },
   ];
 
@@ -76,11 +76,11 @@ export function TeacherScheduleTable({ rows }: { rows: TeacherScheduleRow[] }) {
   }, [endDate, preset, rows, startDate]);
 
   const presetButtons: { label: string; value: Preset }[] = [
-    { label: "Tümü", value: "all" },
-    { label: "Bugün", value: "today" },
-    { label: "Bu Hafta", value: "week" },
-    { label: "Bu Ay", value: "month" },
-    { label: "Bu Yıl", value: "year" },
+    { label: t("reports.classrooms.filters.all"), value: "all" },
+    { label: t("reports.teacherDetail.headers.date") + " - Today", value: "today" },
+    { label: "Week", value: "week" },
+    { label: "Month", value: "month" },
+    { label: "Year", value: "year" },
   ];
 
   return (
