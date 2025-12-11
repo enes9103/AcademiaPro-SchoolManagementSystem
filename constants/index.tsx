@@ -1,7 +1,15 @@
 import { SideNavItemGroup } from "@/types/sidebar";
 import { BsEnvelope, BsHouseDoor, BsQuestionCircle } from "react-icons/bs";
-import { FiUser, FiBook, FiBarChart2, FiGrid, FiUserCheck, FiUsers } from "react-icons/fi";
-import { PiUserListLight, PiCalendarCheck } from "react-icons/pi";
+import {
+  FiUser,
+  FiBook,
+  FiBarChart2,
+  FiGrid,
+  FiUserCheck,
+  FiUsers,
+} from "react-icons/fi";
+import { PiCalendarCheck } from "react-icons/pi";
+import { HiOutlineUserGroup } from "react-icons/hi";
 import { IoSchoolOutline } from "react-icons/io5";
 import { LuSchool2 } from "react-icons/lu";
 import { MdOutlineAssignment } from "react-icons/md";
@@ -40,21 +48,21 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
             allowedRole: [UserRole.ADMIN],
             title: "User List",
             path: "/admin/list/user",
-            icon: <PiUserListLight size={20} />,
+            icon: <HiOutlineUserGroup size={20} />,
           },
           {
             allowedStatus: [UserStatus.ACTIVE],
             allowedRole: [UserRole.ADMIN],
             title: "Teacher List",
             path: "/admin/list/teacher",
-            icon: <PiUserListLight size={20} />,
+            icon: <FiUserCheck size={20} />,
           },
           {
             allowedStatus: [UserStatus.ACTIVE],
             allowedRole: [UserRole.ADMIN],
             title: "Student List",
             path: "/admin/list/student",
-            icon: <PiUserListLight size={20} />,
+            icon: <FiUsers size={20} />,
           },
         ],
       },
