@@ -29,6 +29,7 @@
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.0.0",
+    "date-fns": "^4.1.0",
     "debounce": "^2.0.0",
     "firebase": "^10.9.0",
     "mini-svg-data-uri": "^1.4.4",
