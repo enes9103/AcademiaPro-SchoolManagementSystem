@@ -42,7 +42,9 @@
     "profile": "Mein Profil",
     "contacts": "Meine Kontakte",
     "settings": "Kontoeinstellungen",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "messages": "Nachrichten",
+    "notifications": "Benachrichtigungen"
   },
   "homeUnknown": {
     "welcome": "Mit AkademiaPro starten",

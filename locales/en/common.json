@@ -42,7 +42,9 @@
     "profile": "My Profile",
     "contacts": "My Contacts",
     "settings": "Account Settings",
-    "logout": "Log Out"
+    "logout": "Log Out",
+    "messages": "Messages",
+    "notifications": "Notifications"
   },
   "homeUnknown": {
     "welcome": "Start using AkademiaPro",

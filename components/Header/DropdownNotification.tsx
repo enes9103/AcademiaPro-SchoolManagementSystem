@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FiBell } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 
 const DropdownNotification = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);
+  const { t } = useTranslation();
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
@@ -65,7 +67,9 @@ const DropdownNotification = () => {
         }`}
       >
         <div className="px-4.5 py-3">
-          <h5 className="text-sm font-medium text-bodydark2">Notification</h5>
+          <h5 className="text-sm font-medium text-bodydark2">
+            {t("header.notifications")}
+          </h5>
         </div>
 
         <ul className="flex h-auto flex-col overflow-y-auto">

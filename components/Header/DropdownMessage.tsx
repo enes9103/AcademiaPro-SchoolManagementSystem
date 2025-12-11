@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FiMessageSquare } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 
 const DropdownMessage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);
+  const { t } = useTranslation();
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
@@ -67,7 +69,9 @@ const DropdownMessage = () => {
         }`}
       >
         <div className="px-4.5 py-3">
-          <h5 className="text-sm font-medium text-bodydark2">Messages</h5>
+          <h5 className="text-sm font-medium text-bodydark2">
+            {t("header.messages")}
+          </h5>
         </div>
       </div>
       {/* <!-- Dropdown End --> */}

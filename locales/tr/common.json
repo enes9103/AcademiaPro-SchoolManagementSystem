@@ -42,7 +42,9 @@
     "profile": "Profilim",
     "contacts": "Kişilerim",
     "settings": "Hesap Ayarları",
-    "logout": "Çıkış Yap"
+    "logout": "Çıkış Yap",
+    "messages": "Mesajlar",
+    "notifications": "Bildirimler"
   },
   "homeUnknown": {
     "welcome": "AkademiaPro'ya başlamak",
