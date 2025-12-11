@@ -74,6 +74,15 @@
     "messages": "Nachrichten",
     "notifications": "Benachrichtigungen"
   },
+  "profile": {
+    "title": "Mein Profil",
+    "subtitle": "Sehen Sie Ihre Kontodaten und Rolleninformationen.",
+    "name": "Name",
+    "email": "E-Mail",
+    "role": "Rolle",
+    "status": "Status",
+    "joined": "Beitritt"
+  },
   "homeUnknown": {
     "welcome": "Mit AkademiaPro starten",
     "headline": "Registrieren Sie sich, um AkademiaPro zu nutzen",

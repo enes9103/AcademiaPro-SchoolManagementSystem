@@ -74,6 +74,15 @@
     "messages": "Messages",
     "notifications": "Notifications"
   },
+  "profile": {
+    "title": "My Profile",
+    "subtitle": "View your account details and role information.",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status",
+    "joined": "Joined"
+  },
   "homeUnknown": {
     "welcome": "Start using AkademiaPro",
     "headline": "Sign up to start using AkademiaPro",

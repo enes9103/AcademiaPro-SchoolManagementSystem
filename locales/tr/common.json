@@ -74,6 +74,15 @@
     "messages": "Mesajlar",
     "notifications": "Bildirimler"
   },
+  "profile": {
+    "title": "Profilim",
+    "subtitle": "Hesap bilgilerinizi ve rolünüzü görüntüleyin.",
+    "name": "İsim",
+    "email": "E-posta",
+    "role": "Rol",
+    "status": "Durum",
+    "joined": "Kayıt"
+  },
   "homeUnknown": {
     "welcome": "AkademiaPro'ya başlamak",
     "headline": "AkademiaPro'yu kullanmaya başlamak için kaydolun",
