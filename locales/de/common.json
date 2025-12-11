@@ -125,6 +125,12 @@
     "todo3": "Rollen- und Zugriffskontrolle",
     "todo3desc": "Admin/Lehrer/Schüler-Sichtbarkeit"
   },
+  "status": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "banned": "Gesperrt",
+    "unknown": "Unbekannt"
+  },
   "help": {
     "title": "Häufige Aktionen",
     "subtitle": "Öffnen Sie den benötigten Punkt; jede Sektion enthält eine Zusammenfassung, Schritte und einen Schnelllink.",

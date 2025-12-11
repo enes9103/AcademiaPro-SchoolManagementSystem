@@ -20,11 +20,11 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
     title: "Dashboards",
     i18nKey: "nav.groups.dashboards",
     allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT, UserRole.UNKNOW],
-    allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW, UserStatus.IN_ACTIVE],
+    allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW, UserStatus.IN_ACTIVE, UserStatus.BANNED],
     menuList: [
       {
         allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT, UserRole.UNKNOW],
-        allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW, UserStatus.IN_ACTIVE],
+        allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW, UserStatus.IN_ACTIVE, UserStatus.BANNED],
         title: "Dashboard",
         i18nKey: "nav.items.dashboard",
         path: "/home",

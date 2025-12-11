@@ -125,6 +125,12 @@
     "todo3": "Role and access control",
     "todo3desc": "Admin/Teacher/Student visibility"
   },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "banned": "Banned",
+    "unknown": "Unknown"
+  },
   "help": {
     "title": "Frequently Asked Actions",
     "subtitle": "Open the accordion item you need. Each has a summary, step-by-step guide, and a quick link.",

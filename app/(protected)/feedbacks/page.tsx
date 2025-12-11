@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
 import React, { useMemo } from "react";
 import { FiMail, FiMessageSquare, FiPhone } from "react-icons/fi";
 import { useTranslation } from "react-i18next";

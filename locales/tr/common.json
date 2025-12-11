@@ -125,6 +125,12 @@
     "todo3": "Rol ve erişim kontrolü",
     "todo3desc": "Admin/Teacher/Student görünürlük"
   },
+  "status": {
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "banned": "Engelli",
+    "unknown": "Bilinmiyor"
+  },
   "help": {
     "title": "Sık Sorulan İşlemler",
     "subtitle": "İhtiyacınız olan başlığı açın; özet, adımlar ve hızlı erişim bağlantısı içerir.",
