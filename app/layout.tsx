@@ -5,6 +5,7 @@ import { auth } from "@/auth";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import NextTopLoader from "nextjs-toploader";
+import { I18nProvider } from "@/components/i18n/I18nProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({
@@ -30,11 +31,13 @@ export default async function RootLayout({
         <body
           className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
         >
-          <div className="relative min-h-screen">
-            <NextTopLoader />
-            {children}
-            <Toaster />
-          </div>
+          <I18nProvider>
+            <div className="relative min-h-screen">
+              <NextTopLoader />
+              {children}
+              <Toaster />
+            </div>
+          </I18nProvider>
         </body>
       </html>
     </SessionProvider>
