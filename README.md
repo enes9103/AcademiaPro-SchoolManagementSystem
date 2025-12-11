@@ -1,46 +1,39 @@
-﻿# NextJS-SMS-Template
+﻿# SchoolOS (Next.js SMS Template)
 
-NextJS-SMS-Template is a platform designed to assist school administration, teachers, and students in managing information and educational processes efficiently. Here are the key features of this SMS template:
+Modern, themeable School Management System template built with Next.js App Router. It ships with protected dashboards, CRUD flows, generic data tables, modal-driven forms, and light/dark design tokens.
 
+## Core Features
+- **Admin**: manage users/roles, teachers, students, classrooms, lessons, schedules, assignments.
+- **Teacher**: view schedule; manage assignments.
+- **Student**: view assignments, classrooms, schedule.
+- **UI**: shared modal system, reusable TanStack-based tables, consistent pagination and accent styling.
+- **Auth**: NextAuth v5 (credentials), role-aware routing.
+- **Storage/Assets**: Firebase Storage (assignment files), Supabase optional.
+- **Data**: Prisma + PostgreSQL.
 
-## Admin Features
-- **Student Management**: Add, view, edit, and delete student records. Manage classes.
-- **Teacher Management**: Add, view, edit, and delete teacher records. Manage schedules.
-- **Class Management**: Create, view, edit, and delete class information. Manage schedules and course data.
-- **Schedule Management**: Create and manage class schedules, teacher schedules, and student schedules. Generate schedule reports.
-- **Assignment Management**: Create, edit and delete assignments.
-## Teacher Features
-- **Teaching Schedule**: View teaching schedule.
-- **Assignment Management**: Create, edit and delete assignments.
-
-## Student Features
-- **Simple Page**
-    
-## Technologies Used
-- **Frontend**: React.js, Next.js
-- **Backend**: Prisma, PostgreSQL
-- **Authentication**: NextAuthV5
-- **Storage**: Firebase Storage, Supabase
+## Tech Stack
+- Next.js (App Router, TypeScript), React 18
+- Prisma ORM, PostgreSQL
+- NextAuth v5
+- Tailwind CSS, TanStack Table
+- Firebase Storage
 
 ## Getting Started
-1. Clone this repository: `git clone https://github.com/zxmodren/NextJS-SMS-Template.git`
-2. Install dependencies: `npm install`
-3. Configure the database and environment variables.
-4. Generate prisma : `npx prisma generate`
-5. Run the development server: `npm run dev`
-6. Access the application at `http://localhost:3000`
+1) Clone: `git clone https://github.com/zxmodren/NextJS-SMS-Template.git`
+2) Install: `npm install`
+3) Env: copy `.env.example` → `.env` and fill DB + auth + storage keys
+4) Prisma: `npx prisma generate` then `npx prisma migrate dev`
+5) Run dev server: `npm run dev` → http://localhost:3000
+
+## Scripts
+- `npm run dev` – start dev server
+- `npm run build` – production build
+- `npm run lint` – lint checks
+- `npx prisma migrate dev` – create/apply migrations
+- `npx prisma studio` – run prisma db screen
+
+## Contributing
+See `CODE_OF_CONDUCT.md` for behavior guidelines. PRs and issues are welcome.
 
 ## License
-This project is licensed under the MIT LICENSE - see the LICENSE.md file for details.
-
-
-## Developer Message 
-Hi everyone, this is my first and probably last Next.js project due to my laptop's very low end specifications (Super Potato). So, I won't be able to continue this project for an indefinite time. Thank you all for visiting, have a good day!
-
-
-## Footage
-[![Picture1](https://i.ibb.co/ZNJJfMp/Picture1.png)](https://imgbb.com/)
-
-
-## DONATE
-<a href="https://www.buymeacoffee.com/aryaferdya9"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a laptop&emoji=💻&slug=aryaferdya9&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+MIT. See `LICENSE` for details.

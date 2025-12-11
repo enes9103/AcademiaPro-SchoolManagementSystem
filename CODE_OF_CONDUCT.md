@@ -59,9 +59,10 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-Email.
-All complaints will be reviewed and investigated promptly and fairly.
+reported to the maintainers at **schoolos-maintainers@proton.me**.
+All complaints will be reviewed and investigated promptly and fairly. We will
+respect confidentiality whenever possible; details are only shared with the
+people needed to resolve the issue.
 
 All community leaders are obligated to respect the privacy and security of the
 reporter of any incident.

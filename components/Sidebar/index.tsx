@@ -65,21 +65,27 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="flex items-center justify-between gap-2 px-6 py-5 lg:py-6">
+      <div className="flex items-center justify-between gap-2 px-4 py-5 lg:py-4 lg:px-2 mb-4 lg:mb-10">
         <Link
           href="/"
           className="flex items-center gap-3 text-[var(--text-primary)]"
         >
           <Image
-            width={28}
-            height={36}
-            src={"./logo-react-svgrepo-com.svg"}
+            width={160}
+            height={60}
+            src="/AcademiaPro-logo.png"
             alt="Logo"
             priority
+            className="h-12 lg:h-16 w-auto dark:hidden"
           />
-          <span className="text-sm font-semibold tracking-tight text-white/90">
-            SchoolOS
-          </span>
+          <Image
+            width={160}
+            height={60}
+            src="/AcademiaPro-logo-dark.png"
+            alt="Logo"
+            priority
+            className="hidden h-12 lg:h-16 w-auto dark:block"
+          />
         </Link>
 
         <button

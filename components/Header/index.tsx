@@ -58,8 +58,9 @@ const Header = (props: {
             <Image
               width={32}
               height={32}
-              src={"./logo-react-svgrepo-com.svg"}
+              src="/AcademiaPro-logo-sm.png"
               alt="Logo"
+              className="h-12"
             />
           </Link>
         </div>

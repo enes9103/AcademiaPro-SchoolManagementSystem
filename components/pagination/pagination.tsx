@@ -7,11 +7,16 @@ import { generatePagination } from "@/lib/utils";
 import clsx from "clsx";
 
 const Pagination = ({ totalPages }: { totalPages: number }) => {
-  if (!totalPages || totalPages <= 1) return null;
-
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const currentPage = Number(searchParams.get("page")) || 1;
+  const safeTotalPages = Math.max(
+    1,
+    Math.ceil(Number.isFinite(totalPages) ? totalPages : 1)
+  );
+  const currentPage = Math.min(
+    Math.max(1, Number(searchParams.get("page")) || 1),
+    safeTotalPages
+  );
 
   const createPageURL = (pageNumber: string | number) => {
     const params = new URLSearchParams(searchParams);
@@ -19,7 +24,7 @@ const Pagination = ({ totalPages }: { totalPages: number }) => {
     return `${pathname}?${params.toString()}`;
   };
 
-  const allPages = generatePagination(currentPage, totalPages);
+  const allPages = generatePagination(currentPage, safeTotalPages);
 
   const PaginationNumber = ({
     page,
@@ -122,7 +127,7 @@ const Pagination = ({ totalPages }: { totalPages: number }) => {
         <PaginationArrow
           direction="right"
           href={createPageURL(currentPage + 1)}
-          isDisabled={currentPage >= totalPages}
+          isDisabled={currentPage >= safeTotalPages}
         />
       </div>
     </div>
