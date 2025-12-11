@@ -19,7 +19,7 @@ const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
         <div className="relative z-10 flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
           <main className="pb-6">
-            <div className="mx-auto max-w-6xl px-4 pt-4 md:px-8 md:pt-6 2xl:max-w-7xl">
+            <div className="mx-auto px-4 pt-4 md:px-8 md:pt-6">
               {children}
               <Toaster />
             </div>

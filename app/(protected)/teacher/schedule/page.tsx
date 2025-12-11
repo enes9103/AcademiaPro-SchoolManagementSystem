@@ -1,17 +1,21 @@
 import React from "react";
-import { TbheadLesson } from "@/components/TbScheduleTeacher/head";
-import TbodyLesson from "@/components/TbScheduleTeacher/body";
-import { TableShell } from "@/components/common/table-shell";
+import { getSchedulebyTeacherId } from "@/data/teacher";
+import { TeacherScheduleTable, TeacherScheduleRow } from "@/components/teacher/TeacherScheduleTable";
 
 const Schedulelist = async () => {
-  return (
-    <TableShell label="Teacher" title="Schedule">
-      <table className="w-full table-auto">
-        <TbheadLesson />
-        <TbodyLesson />
-      </table>
-    </TableShell>
-  );
+  const teacher = await getSchedulebyTeacherId();
+
+  const rows: TeacherScheduleRow[] =
+    teacher?.lesson.flatMap((lesson) =>
+      lesson.schedule.map((sch) => ({
+        lesson: lesson.name,
+        classroom: sch.classroom.name,
+        date: new Date(sch.day).toLocaleDateString("tr-TR"),
+        time: sch.time,
+      }))
+    ) ?? [];
+
+  return <TeacherScheduleTable rows={rows} />;
 };
 
 export default Schedulelist;

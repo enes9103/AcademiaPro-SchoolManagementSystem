@@ -42,7 +42,7 @@ export function TeacherReportsTable({ rows }: { rows: TeacherReportRow[] }) {
       cell: ({ row }) => (
         <Link
           href={`/admin/reports/teachers/${row.original.id}`}
-          className="btnSave inline-flex items-center justify-center px-3 py-1 text-sm"
+          className="btnEdt inline-flex items-center justify-center text-sm"
         >
           Detail
         </Link>

@@ -110,7 +110,7 @@ const HelpPage = () => {
 
   return (
     <div className="surface-panel rounded-3xl px-6 py-6 sm:px-8">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
+      <div className="mx-auto flex w-full flex-col gap-8">
         <header className="space-y-3">
           <p className="text-sm uppercase tracking-[0.25em] text-[var(--text-muted)]">
             Yardım & Dokümantasyon
