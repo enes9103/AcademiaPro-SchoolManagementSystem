@@ -4,6 +4,7 @@ import DropdownMessage from "./DropdownMessage";
 import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import Image from "next/image";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -73,6 +74,7 @@ const Header = (props: {
         </div>
 
         <div className="ml-auto flex items-center gap-3 2xsm:gap-5">
+          <LanguageSwitcher />
           <DarkModeSwitcher />
           <DropdownUser />
         </div>

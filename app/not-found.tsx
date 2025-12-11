@@ -9,20 +9,6 @@ function NotFoundPage() {
           width: "100%",
         }}
       >
-        <iframe
-          frameBorder="0"
-          height="100%"
-          src="https://giphy.com/embed/d9P5HfhXRNRj9JDPe9/video"
-          style={{
-            left: 0,
-            position: "absolute",
-            top: 0,
-            width: "100%",
-            height: "100%",
-            filter: "blur(1px)",
-          }}
-          width="100%"
-        ></iframe>
         <div
           style={{
             position: "absolute",

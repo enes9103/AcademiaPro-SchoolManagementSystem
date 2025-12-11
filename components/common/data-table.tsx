@@ -11,6 +11,7 @@ import { useSearchParams } from "next/navigation";
 import { Table } from "@/components/common/table";
 import { TableShell } from "@/components/common/table-shell";
 import Pagination from "@/components/pagination/pagination";
+import { useTranslation } from "react-i18next";
 
 type DataTableProps<TData> = {
   columns: ColumnDef<TData, any>[];
@@ -41,6 +42,7 @@ export function DataTable<TData>({
 }: DataTableProps<TData>) {
   const [query, setQuery] = useState("");
   const searchParams = useSearchParams();
+  const { t } = useTranslation();
 
   const filtered = useMemo(() => {
     if (!enableSearch || !query) return data;
@@ -98,7 +100,7 @@ export function DataTable<TData>({
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={searchPlaceholder}
+              placeholder={t("table.search", { defaultValue: searchPlaceholder })}
               className="w-full max-w-xs rounded-md border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--text-primary)] outline-none"
             />
           </div>
@@ -153,7 +155,7 @@ export function DataTable<TData>({
                   colSpan={columns.length || 1}
                   className="px-4 py-6 text-center text-sm text-[var(--text-muted)]"
                 >
-                  There is no data.
+                  {t("table.noData", { defaultValue: "There is no data." })}
                 </td>
               </tr>
             )}

@@ -1,0 +1,22 @@
+{
+  "languages": {
+    "en": "İngilizce",
+    "tr": "Türkçe",
+    "de": "Almanca"
+  },
+  "table": {
+    "noData": "Veri bulunmuyor.",
+    "search": "Ara..."
+  },
+  "homeUnknown": {
+    "welcome": "AkademiaPro'ya başlamak",
+    "headline": "AkademiaPro'yu kullanmaya başlamak için kaydolun",
+    "subtitle": "Sınıf, ders programı ve ödev takibini tek panelden yönetin. Kayıt olmak veya demo talep etmek için aşağıdaki adımlardan birini seçin.",
+    "ctaContact": "İletişime Geç",
+    "ctaDemo": "Demo İste",
+    "ctaSupport": "Destek",
+    "cardContactDesc": "AkademiaPro'ya katılın, sınıf/schedule/assignment takibini tek panelden yönetin. Kayıt için bize ulaşın.",
+    "cardDemoDesc": "Ödev yönetimi, program planlama, raporlar ve daha fazlasını keşfedin. Demo talep edin.",
+    "cardSupportDesc": "Kayıt veya erişim için destek ekibimizle iletişime geçin. Telefon ya da e-posta ile ulaşabilirsiniz."
+  }
+}

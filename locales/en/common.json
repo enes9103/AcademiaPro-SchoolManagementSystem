@@ -1,0 +1,22 @@
+{
+  "languages": {
+    "en": "English",
+    "tr": "Turkish",
+    "de": "German"
+  },
+  "table": {
+    "noData": "There is no data.",
+    "search": "Search..."
+  },
+  "homeUnknown": {
+    "welcome": "Start using AkademiaPro",
+    "headline": "Sign up to start using AkademiaPro",
+    "subtitle": "Manage classrooms, schedules, and assignments from one panel. Choose one of the options below to contact us or request a demo.",
+    "ctaContact": "Contact Us",
+    "ctaDemo": "Request Demo",
+    "ctaSupport": "Support",
+    "cardContactDesc": "Join AkademiaPro to manage classes, schedules, and assignments in one place. Get in touch to sign up.",
+    "cardDemoDesc": "Discover homework management, schedule planning, reports, and more. Request a demo.",
+    "cardSupportDesc": "Need help with signup or access? Reach our support team via phone or email."
+  }
+}

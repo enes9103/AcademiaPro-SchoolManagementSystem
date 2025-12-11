@@ -1,0 +1,22 @@
+{
+  "languages": {
+    "en": "Englisch",
+    "tr": "Türkisch",
+    "de": "Deutsch"
+  },
+  "table": {
+    "noData": "Keine Daten verfügbar.",
+    "search": "Suchen..."
+  },
+  "homeUnknown": {
+    "welcome": "Mit AkademiaPro starten",
+    "headline": "Registrieren Sie sich, um AkademiaPro zu nutzen",
+    "subtitle": "Verwalten Sie Klassen, Stundenpläne und Aufgaben in einem Panel. Wählen Sie eine Option, um uns zu kontaktieren oder eine Demo anzufordern.",
+    "ctaContact": "Kontakt",
+    "ctaDemo": "Demo anfragen",
+    "ctaSupport": "Support",
+    "cardContactDesc": "Treten Sie AkademiaPro bei und verwalten Sie Klassen, Pläne und Aufgaben an einem Ort. Kontaktieren Sie uns für die Registrierung.",
+    "cardDemoDesc": "Entdecken Sie Aufgabenverwaltung, Planungen, Berichte und mehr. Fordern Sie eine Demo an.",
+    "cardSupportDesc": "Brauchen Sie Hilfe bei Registrierung oder Zugang? Kontaktieren Sie unser Support-Team per Telefon oder E-Mail."
+  }
+}

@@ -49,7 +49,7 @@ const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
             rate="+0.43%"
             levelUp
           >
-            <FiGrid className="h-6 w-6 text-sky-200" />
+            <FiGrid className="h-6 w-6 text-sky-500" />
           </CardDataStats>
         </RoleGate>
         <CardDataStats
@@ -58,7 +58,7 @@ const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
           rate="+4.35%"
           levelUp
         >
-          <FiBookOpen className="h-6 w-6 text-sky-200" />
+          <FiBookOpen className="h-6 w-6 text-sky-500" />
         </CardDataStats>
         <CardDataStats
           title="Ödev Sayısı"
@@ -66,7 +66,7 @@ const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
           rate="+2.59%"
           levelUp
         >
-          <FiClipboard className="h-6 w-6 text-sky-200" />
+          <FiClipboard className="h-6 w-6 text-sky-500" />
         </CardDataStats>
         <RoleGate allowedRole={UserRole.ADMIN}>
           <CardDataStats
@@ -75,7 +75,7 @@ const Dashboard: React.FC<DashboardProps> = ({ totalDataCard }) => {
             rate="-0.95%"
             levelDown
           >
-            <FiUsers className="h-6 w-6 text-sky-200" />
+            <FiUsers className="h-6 w-6 text-sky-500" />
           </CardDataStats>
         </RoleGate>
       </div>
