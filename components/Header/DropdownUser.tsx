@@ -80,16 +80,7 @@ const DropdownUser = () => {
           </li>
           <li>
             <Link
-              href="#"
-              className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
-            >
-              <FiBookOpen className="h-5 w-5" />
-              {t("header.contacts")}
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#"
+              href="/settings"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <FiSettings className="h-5 w-5" />

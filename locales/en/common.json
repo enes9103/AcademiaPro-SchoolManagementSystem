@@ -68,11 +68,20 @@
   },
   "header": {
     "profile": "My Profile",
-    "contacts": "My Contacts",
     "settings": "Account Settings",
     "logout": "Log Out",
     "messages": "Messages",
     "notifications": "Notifications"
+  },
+  "settings": {
+    "title": "Account Settings",
+    "subtitle": "Adjust your account details and preferences.",
+    "sections": {
+      "account": "Account",
+      "preferences": "Preferences"
+    },
+    "language": "Language is controlled from the header dropdown.",
+    "theme": "Use the header switch to toggle light/dark mode."
   },
   "profile": {
     "title": "My Profile",

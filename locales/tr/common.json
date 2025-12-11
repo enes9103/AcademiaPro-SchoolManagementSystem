@@ -68,11 +68,20 @@
   },
   "header": {
     "profile": "Profilim",
-    "contacts": "Kişilerim",
     "settings": "Hesap Ayarları",
     "logout": "Çıkış Yap",
     "messages": "Mesajlar",
     "notifications": "Bildirimler"
+  },
+  "settings": {
+    "title": "Hesap Ayarları",
+    "subtitle": "Hesap bilgilerinizi ve tercihlerinizi düzenleyin.",
+    "sections": {
+      "account": "Hesap",
+      "preferences": "Tercihler"
+    },
+    "language": "Dil değişimini üstteki dropdown'dan yapabilirsiniz.",
+    "theme": "Üstteki anahtarla aydınlık/karanlık tema seçebilirsiniz."
   },
   "profile": {
     "title": "Profilim",

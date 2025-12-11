@@ -68,11 +68,20 @@
   },
   "header": {
     "profile": "Mein Profil",
-    "contacts": "Meine Kontakte",
     "settings": "Kontoeinstellungen",
     "logout": "Abmelden",
     "messages": "Nachrichten",
     "notifications": "Benachrichtigungen"
+  },
+  "settings": {
+    "title": "Kontoeinstellungen",
+    "subtitle": "Passen Sie Ihre Kontodaten und Präferenzen an.",
+    "sections": {
+      "account": "Konto",
+      "preferences": "Einstellungen"
+    },
+    "language": "Die Sprache stellst du im Header-Dropdown ein.",
+    "theme": "Nutze den Schalter oben für Hell/Dunkel."
   },
   "profile": {
     "title": "Mein Profil",
