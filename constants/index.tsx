@@ -20,11 +20,11 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
     title: "Dashboards",
     i18nKey: "nav.groups.dashboards",
     allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT, UserRole.UNKNOW],
-    allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW],
+    allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW, UserStatus.IN_ACTIVE],
     menuList: [
       {
         allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT, UserRole.UNKNOW],
-        allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW],
+        allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW, UserStatus.IN_ACTIVE],
         title: "Dashboard",
         i18nKey: "nav.items.dashboard",
         path: "/home",
@@ -241,16 +241,6 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
       UserStatus.UNKNOW,
     ],
     menuList: [
-      {
-        allowedStatus: [
-          UserStatus.ACTIVE,
-        ],
-        allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT],
-        title: "Tasks",
-        i18nKey: "nav.items.tasks",
-        path: "/tasks",
-        icon: <FiGrid size={20} />,
-      },
       {
         allowedStatus: [
           UserStatus.ACTIVE,
