@@ -45,5 +45,184 @@
     "todo2desc": "Tüm öğrenciler için güncel takvim",
     "todo3": "Rol ve erişim kontrolü",
     "todo3desc": "Admin/Teacher/Student görünürlük"
+  },
+  "help": {
+    "title": "Sık Sorulan İşlemler",
+    "subtitle": "İhtiyacınız olan başlığı açın; özet, adımlar ve hızlı erişim bağlantısı içerir.",
+    "student": {
+      "classroom": {
+        "title": "Sınıfımı nerede görebilirim?",
+        "summary": "Kayıtlı olduğunuz sınıfı Classroom sayfasından görüntüleyin.",
+        "steps": [
+          "Menüden Student > Classroom seçeneğine tıklayın.",
+          "Tabloda kayıtlı olduğunuz sınıf(lar) listelenir.",
+          "Arama ile sınıf adını hızlıca filtreleyin."
+        ],
+        "cta": "Classroom sayfasına git"
+      },
+      "assignments": {
+        "title": "Ödevlerimi nasıl görürüm?",
+        "summary": "Sınıfınıza tanımlanmış ödevleri görev, ders, öğretmen ve teslim tarihiyle görün.",
+        "steps": [
+          "Menüden Student > Assignments seçeneğine tıklayın.",
+          "Tabloda görev, ders, sınıf, deadline ve öğretmen bilgilerini inceleyin.",
+          "Arama ile ders veya görev adına göre filtreleyin."
+        ],
+        "cta": "Assignments sayfasına git"
+      },
+      "schedule": {
+        "title": "Ders programım nerede?",
+        "summary": "Sınıfınıza ait planlanmış dersleri Schedule ekranından takip edin.",
+        "steps": [
+          "Menüden Student > Schedule seçeneğine tıklayın.",
+          "Ders, sınıf, tarih, saat ve öğretmen bilgilerini tablo halinde görün.",
+          "Arama ile ders veya sınıf adına göre filtreleyin."
+        ],
+        "cta": "Schedule sayfasına git"
+      }
+    },
+    "teacher": {
+      "classroom": {
+        "title": "Sorumlu olduğum sınıfları nerede görürüm?",
+        "summary": "Ders girdiğiniz sınıfları ve öğrencilerini Classroom ekranından inceleyin.",
+        "steps": [
+          "Menüden Academy > Classroom (Teacher) seçeneğine tıklayın.",
+          "Sınıf adı, kapasite ve kayıtlı öğrencileri listede görün.",
+          "Arama ile sınıf adına göre filtreleyin."
+        ],
+        "cta": "Classroom sayfasına git"
+      },
+      "schedule": {
+        "title": "Ders programımı nasıl görüntülerim?",
+        "summary": "Size atanmış derslerin tarih/saat ve sınıf bilgilerini kontrol edin.",
+        "steps": [
+          "Menüden Academy > Schedule seçeneğine tıklayın.",
+          "Ders, sınıf, tarih ve saat bilgilerini tablo halinde inceleyin.",
+          "Arama ile ders veya sınıf adına göre filtreleyin; sayfalama ile gezinin."
+        ],
+        "cta": "Schedule sayfasına git"
+      },
+      "assignments": {
+        "title": "Ödev ekleme ve yönetme nasıl yapılır?",
+        "summary": "Sınıflarınıza ödev tanımlayın, dosya yükleyin, teslim tarihini ayarlayın.",
+        "steps": [
+          "Menüden Academy > Assignments seçeneğine tıklayın.",
+          "Add ile modalı açın, görev adı, ders, sınıf, deadline ve dosyayı ekleyin.",
+          "Save Changes ile kaydedin; mevcut ödevleri tabloda görün."
+        ],
+        "cta": "Assignments sayfasına git"
+      }
+    },
+    "unknown": {
+      "register": {
+        "title": "Sisteme nasıl kayıt olabilirim?",
+        "summary": "Hesabınız yoksa yöneticiyle iletişime geçin veya kayıt formunu doldurun.",
+        "steps": [
+          "Giriş ekranındaki kayıt talebi veya iletişim linkine tıklayın.",
+          "Ad, e-posta ve rol bilgilerinizi iletin.",
+          "Yönetici onayladığında giriş yapabilirsiniz."
+        ],
+        "cta": "İletişim"
+      },
+      "support": {
+        "title": "Kayıt sürecinde destek nasıl alırım?",
+        "summary": "Kayıt/erişim sorunlarında destek ekibine ya da yöneticiye yazın.",
+        "steps": [
+          "Feedbacks sayfasından mesajınızı iletin.",
+          "E-postanızı kontrol edin; gelen yanıttaki yönlendirmeleri uygulayın.",
+          "Gerekirse yeniden yazın, süreç tamamlanana kadar destek verilir."
+        ],
+        "cta": "Feedbacks sayfasına git"
+      }
+    },
+    "admin": {
+      "student": {
+        "title": "Öğrenci nasıl oluştururum?",
+        "summary": "Admin panelinde öğrenci kaydı açıp sınıfa ekleyin.",
+        "steps": [
+          "Students sayfasına gidin.",
+          "Add butonuna tıklayın.",
+          "Öğrenci bilgilerini girip sınıf seçin.",
+          "Save Changes ile kaydedin; öğrencinin sınıfta olduğunu kontrol edin."
+        ],
+        "cta": "Students sayfasına git"
+      },
+      "teacher": {
+        "title": "Öğretmen nasıl eklenir?",
+        "summary": "Yeni öğretmen hesabı açma ve ders atama süreci.",
+        "steps": [
+          "Users veya Teachers sayfasına gidin.",
+          "Add ile kullanıcı/öğretmen kartını oluşturun.",
+          "Gerekirse Teachers'ta Edit ile branş/ders ataması yapın."
+        ],
+        "cta": "Teachers sayfasına git"
+      },
+      "lesson": {
+        "title": "Ders oluşturma ve öğretmen atama",
+        "summary": "Yeni ders açıp ilgili öğretmeni bağlama adımları.",
+        "steps": [
+          "Manage > Lessons sayfasına gidin.",
+          "Add ile ders adını ve kategoriyi girin.",
+          "Teacher açılır listesinden öğretmeni seçin.",
+          "Save Changes ile kaydedin."
+        ],
+        "cta": "Lessons sayfasına git"
+      },
+      "classroom": {
+        "title": "Sınıf oluşturma ve öğrenci ekleme",
+        "summary": "Yeni sınıf oluşturup mevcut öğrencileri ekleyin.",
+        "steps": [
+          "Manage > Classroom sayfasına gidin, Add butonuna tıklayın.",
+          "Sınıf adı ve kapasiteyi girip kaydedin.",
+          "Students sayfasında öğrenciye Add ile sınıfa ekleme yapın."
+        ],
+        "cta": "Classrooms sayfasına git"
+      },
+      "schedule": {
+        "title": "Ders programına oturum ekleme",
+        "summary": "Ders, öğretmen ve sınıfı eşleştirerek program girişi yapın.",
+        "steps": [
+          "Manage > Schedule sayfasına gidin.",
+          "Gün, saat, ders ve sınıf seçin.",
+          "Save Changes ile kaydedin; tabloda kontrol edin."
+        ],
+        "cta": "Schedule sayfasına git"
+      },
+      "assignment": {
+        "title": "Ödev ekleme ve dosya yükleme",
+        "summary": "Ödev oluşturup dosya yükleyin.",
+        "steps": [
+          "Assignments sayfasında Add butonuna tıklayın.",
+          "Başlık, ders, sınıf, deadline ve dosyayı ekleyin.",
+          "Save Changes ile kaydedin."
+        ],
+        "cta": "Assignments sayfasına git"
+      }
+    }
+  },
+  "feedback": {
+    "label": "Feedback & İletişim",
+    "title": "Fikirlerinizi duymak istiyoruz",
+    "subtitle": "Öneri, hata bildirimi veya sorularınızı paylaşın. Formu doldurun ya da doğrudan WhatsApp/e-posta ile ulaşın.",
+    "responseTime": "Ortalama dönüş süresi: 1 iş günü",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "subject": "Konu",
+      "message": "Mesajınız",
+      "submit": "Geri Bildirim Gönder",
+      "note": "Form varsayılan e-posta uygulamanızla açılır."
+    },
+    "contact": {
+      "whatsappTitle": "WhatsApp",
+      "whatsappDesc": "Hızlıca mesaj bırakın, kısa sürede dönüş yapalım.",
+      "whatsappAction": "WhatsApp'tan Yaz",
+      "emailTitle": "E-posta",
+      "emailDesc": "Daha detaylı konular için e-posta atın.",
+      "emailAction": "E-posta Gönder",
+      "phoneTitle": "Telefon",
+      "phoneDesc": "Hafta içi 09:00-18:00 arası arayabilirsiniz.",
+      "phoneAction": "+62 822 9440 0729"
+    }
   }
 }

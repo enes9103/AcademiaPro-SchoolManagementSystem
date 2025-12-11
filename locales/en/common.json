@@ -45,5 +45,184 @@
     "todo2desc": "Keep calendars current for all students",
     "todo3": "Role and access control",
     "todo3desc": "Admin/Teacher/Student visibility"
+  },
+  "help": {
+    "title": "Frequently Asked Actions",
+    "subtitle": "Open the accordion item you need. Each has a summary, step-by-step guide, and a quick link.",
+    "student": {
+      "classroom": {
+        "title": "Where can I see my classroom?",
+        "summary": "View which classroom you are registered to from the Classroom page.",
+        "steps": [
+          "Click Student > Classroom in the menu.",
+          "See your registered classroom(s) in the table.",
+          "Use search to quickly filter by classroom name."
+        ],
+        "cta": "Go to Classroom"
+      },
+      "assignments": {
+        "title": "How do I see my assignments?",
+        "summary": "See all assignments for your class with task, subject, teacher and deadline.",
+        "steps": [
+          "Click Student > Assignments in the menu.",
+          "Check task, subject, class, deadline and teacher info in the table.",
+          "Use search to filter by subject or task name."
+        ],
+        "cta": "Go to Assignments"
+      },
+      "schedule": {
+        "title": "Where is my timetable?",
+        "summary": "Track planned lessons for your class in the Schedule page.",
+        "steps": [
+          "Click Student > Schedule in the menu.",
+          "See lesson, class, date, time and teacher info in the table.",
+          "Use search to filter by lesson or class name."
+        ],
+        "cta": "Go to Schedule"
+      }
+    },
+    "teacher": {
+      "classroom": {
+        "title": "Where do I see the classes I'm responsible for?",
+        "summary": "Review the classes you teach and their students on the Classroom screen.",
+        "steps": [
+          "Click Academy > Classroom (Teacher) in the menu.",
+          "See class name, capacity and enrolled students in the list.",
+          "Use search to filter by class name."
+        ],
+        "cta": "Go to Classroom"
+      },
+      "schedule": {
+        "title": "How do I view my schedule?",
+        "summary": "Check your assigned lessons with date/time and class info.",
+        "steps": [
+          "Click Academy > Schedule in the menu.",
+          "Review lesson, class, date and time in the table.",
+          "Use search to filter by lesson or class; pagination for navigation."
+        ],
+        "cta": "Go to Schedule"
+      },
+      "assignments": {
+        "title": "How do I add/manage assignments?",
+        "summary": "Define assignments for your classes, upload files, and set deadlines.",
+        "steps": [
+          "Click Academy > Assignments in the menu.",
+          "Open the Add modal, enter task, subject, class, deadline, file.",
+          "Save Changes; see current assignments in the table."
+        ],
+        "cta": "Go to Assignments"
+      }
+    },
+    "unknown": {
+      "register": {
+        "title": "How can I sign up?",
+        "summary": "If you don't have an account, contact admin or fill the request form.",
+        "steps": [
+          "Click the signup request or contact link on the login screen.",
+          "Provide name, email, and desired role.",
+          "Once approved, you can log in."
+        ],
+        "cta": "Contact"
+      },
+      "support": {
+        "title": "How do I get support during signup?",
+        "summary": "Reach support or admin if you face issues with signup or access.",
+        "steps": [
+          "Send your message from the Feedbacks page.",
+          "Check your email; follow the instructions when you receive a reply.",
+          "Reach out again if needed until the process is done."
+        ],
+        "cta": "Go to Feedbacks"
+      }
+    },
+    "admin": {
+      "student": {
+        "title": "How to create a student?",
+        "summary": "Open student record in admin and add to class.",
+        "steps": [
+          "Go to Students.",
+          "Click Add.",
+          "Fill student info and select class.",
+          "Save Changes and verify the student is in class."
+        ],
+        "cta": "Go to Students"
+      },
+      "teacher": {
+        "title": "How to add a teacher?",
+        "summary": "Create new teacher account and assign subjects.",
+        "steps": [
+          "Go to Users or Teachers.",
+          "Use Add to create the user/teacher card.",
+          "If needed, use Edit in Teachers to assign subject/lesson."
+        ],
+        "cta": "Go to Teachers"
+      },
+      "lesson": {
+        "title": "How to create a lesson and assign a teacher?",
+        "summary": "Open a new lesson and link the teacher.",
+        "steps": [
+          "Go to Manage > Lessons.",
+          "Click Add, enter lesson name and category.",
+          "Pick the teacher from the dropdown.",
+          "Save Changes."
+        ],
+        "cta": "Go to Lessons"
+      },
+      "classroom": {
+        "title": "How to create a classroom and add students?",
+        "summary": "Create a classroom and add existing students.",
+        "steps": [
+          "Go to Manage > Classroom and click Add.",
+          "Enter class name and capacity, Save Changes.",
+          "In Students page, Add the student to the classroom."
+        ],
+        "cta": "Go to Classrooms"
+      },
+      "schedule": {
+        "title": "How to add schedule sessions?",
+        "summary": "Pair lesson, teacher and class to create schedule entries.",
+        "steps": [
+          "Go to Manage > Schedule.",
+          "Add day, time, lesson and class.",
+          "Save Changes; verify in the table."
+        ],
+        "cta": "Go to Schedule"
+      },
+      "assignment": {
+        "title": "How to add assignments and upload files?",
+        "summary": "Create assignments for teachers/classes and upload files.",
+        "steps": [
+          "Click Add in Assignments.",
+          "Enter title, lesson, class, deadline, optionally attach file.",
+          "Save Changes."
+        ],
+        "cta": "Go to Assignments"
+      }
+    }
+  },
+  "feedback": {
+    "label": "Feedback & Contact",
+    "title": "We’d love to hear from you",
+    "subtitle": "Share suggestions, bug reports, or questions. Fill the form or reach us directly via WhatsApp or email.",
+    "responseTime": "Average response time: 1 business day",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Feedback",
+      "note": "The form opens your default mail app."
+    },
+    "contact": {
+      "whatsappTitle": "WhatsApp",
+      "whatsappDesc": "Send a quick message, we’ll reply shortly.",
+      "whatsappAction": "Message on WhatsApp",
+      "emailTitle": "Email",
+      "emailDesc": "Send an email for detailed topics.",
+      "emailAction": "Send Email",
+      "phoneTitle": "Phone",
+      "phoneDesc": "Reach us by phone on business days.",
+      "phoneAction": "+62 822 9440 0729"
+    }
   }
 }

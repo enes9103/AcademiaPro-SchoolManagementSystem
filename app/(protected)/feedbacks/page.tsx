@@ -1,64 +1,67 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { FiMail, FiMessageSquare, FiPhone } from "react-icons/fi";
-
-const contactOptions = [
-  {
-    title: "WhatsApp",
-    description: "Hızlıca mesaj bırakın, en kısa sürede dönüş yapalım.",
-    action: "WhatsApp'tan Yaz",
-    href: "https://wa.me/6282294400729",
-    icon: FiMessageSquare,
-    color: "from-emerald-500 to-emerald-400",
-  },
-  {
-    title: "E-posta",
-    description: "Daha detaylı bir konu için e-posta atabilirsiniz.",
-    action: "E-posta Gönder",
-    href: "mailto:aryaferdyansahxiii@gmail.com",
-    icon: FiMail,
-    color: "from-orange-500 to-amber-500",
-  },
-  {
-    title: "Telefon",
-    description: "Hafta içi 09:00-18:00 arası telefonla ulaşın.",
-    action: "+62 822 9440 0729",
-    href: "tel:+6282294400729",
-    icon: FiPhone,
-    color: "from-sky-500 to-indigo-500",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const Page = () => {
+  const { t } = useTranslation();
+
+  const contactOptions = useMemo(
+    () => [
+      {
+        title: t("feedback.contact.whatsappTitle"),
+        description: t("feedback.contact.whatsappDesc"),
+        action: t("feedback.contact.whatsappAction"),
+        href: "https://wa.me/6282294400729",
+        icon: FiMessageSquare,
+        color: "from-emerald-500 to-emerald-400",
+      },
+      {
+        title: t("feedback.contact.emailTitle"),
+        description: t("feedback.contact.emailDesc"),
+        action: t("feedback.contact.emailAction"),
+        href: "mailto:aryaferdyansahxiii@gmail.com",
+        icon: FiMail,
+        color: "from-orange-500 to-amber-500",
+      },
+      {
+        title: t("feedback.contact.phoneTitle"),
+        description: t("feedback.contact.phoneDesc"),
+        action: t("feedback.contact.phoneAction"),
+        href: "tel:+6282294400729",
+        icon: FiPhone,
+        color: "from-sky-500 to-indigo-500",
+      },
+    ],
+    [t]
+  );
+
   return (
     <div className="surface-panel rounded-3xl px-6 py-6 sm:px-8">
       <div className="mx-auto flex w-full flex-col gap-10">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="space-y-3">
             <p className="text-sm uppercase tracking-[0.25em] text-[var(--text-muted)]">
-              Feedback & Contact
+              {t("feedback.label")}
             </p>
             <h1 className="text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
-              Fikirlerinizi duymak istiyoruz
+              {t("feedback.title")}
             </h1>
             <p className="max-w-2xl text-[var(--text-muted)]">
-              AkademiaPro’yu daha iyi hale getirmek için öneri, hata bildirimi
-              ya da merak ettiğiniz her şeyi bize iletin. İsterseniz formu
-              doldurun, isterseniz direkt WhatsApp veya e-posta ile ulaşın.
+              {t("feedback.subtitle")}
             </p>
           </div>
           <div className="rounded-full bg-white/70 px-4 py-2 text-sm font-semibold text-[var(--accent)] shadow-md shadow-[var(--shadow)] backdrop-blur dark:bg-white/10 dark:text-white">
-            Ortalama dönüş süresi: 1 iş günü
+            {t("feedback.responseTime")}
           </div>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[2fr_1.5fr]">
           <div className="rounded-2xl border border-[var(--border)] bg-white/80 p-6 shadow-[0_18px_60px_-30px_rgba(20,24,36,0.12)] backdrop-blur dark:border-white/10 dark:bg-white/5">
             <h2 className="text-xl font-semibold text-[var(--text-primary)]">
-              Mesajınızı bırakın
+              {t("feedback.form.submit")}
             </h2>
             <p className="mt-1 text-sm text-[var(--text-muted)]">
-              Form gönderildiğinde varsayılan e-posta istemciniz açılır. Konuyu
-              ve mesajınızı yazın, gönderin.
+              {t("feedback.form.note")}
             </p>
             <form
               action="mailto:aryaferdyansahxiii@gmail.com"
@@ -68,17 +71,17 @@ const Page = () => {
             >
               <div className="grid gap-4 sm:grid-cols-2 mb-2">
                 <label className="space-y-2 text-sm font-medium text-[var(--text-primary)]">
-                  Ad Soyad
+                  {t("feedback.form.name")}
                   <input
                     type="text"
                     name="name"
-                    placeholder="Adınızı yazın"
+                    placeholder={t("feedback.form.name")}
                     className="w-full rounded-lg border border-[var(--border)] bg-white/70 px-3 py-2 text-[var(--text-primary)] shadow-sm focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20 dark:bg-white/5"
                     required
                   />
                 </label>
                 <label className="space-y-2 text-sm font-medium text-[var(--text-primary)]">
-                  E-posta
+                  {t("feedback.form.email")}
                   <input
                     type="email"
                     name="email"
@@ -89,20 +92,20 @@ const Page = () => {
                 </label>
               </div>
               <label className="space-y-2 text-sm font-medium text-[var(--text-primary)] mb-2">
-                Konu
+                {t("feedback.form.subject")}
                 <input
                   type="text"
                   name="subject"
-                  placeholder="Geri bildirim konusu"
+                  placeholder={t("feedback.form.subject")}
                   className="w-full rounded-lg border border-[var(--border)] bg-white/70 px-3 py-2 text-[var(--text-primary)] shadow-sm focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20 dark:bg-white/5"
                   required
                 />
               </label>
               <label className="space-y-2 text-sm font-medium text-[var(--text-primary)] mb-2">
-                Mesajınız
+                {t("feedback.form.message")}
                 <textarea
                   name="message"
-                  placeholder="Öneri, hata bildirimi veya sorunuz..."
+                  placeholder={t("feedback.form.message")}
                   rows={5}
                   className="w-full rounded-lg border border-[var(--border)] bg-white/70 px-3 py-3 text-[var(--text-primary)] shadow-sm focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20 dark:bg-white/5"
                   required
@@ -113,11 +116,9 @@ const Page = () => {
                   type="submit"
                   className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white shadow transition hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40"
                 >
-                  Geri Bildirim Gönder
+                  {t("feedback.form.submit")}
                 </button>
-                <p className="text-xs text-[var(--text-muted)]">
-                  Form, cihazınızdaki e-posta uygulamasıyla açılır.
-                </p>
+                <p className="text-xs text-[var(--text-muted)]">{t("feedback.form.note")}</p>
               </div>
             </form>
           </div>

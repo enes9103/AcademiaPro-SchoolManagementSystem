@@ -45,5 +45,184 @@
     "todo2desc": "Aktuelle Kalender für alle Schüler",
     "todo3": "Rollen- und Zugriffskontrolle",
     "todo3desc": "Admin/Lehrer/Schüler-Sichtbarkeit"
+  },
+  "help": {
+    "title": "Häufige Aktionen",
+    "subtitle": "Öffnen Sie den benötigten Punkt; jede Sektion enthält eine Zusammenfassung, Schritte und einen Schnelllink.",
+    "student": {
+      "classroom": {
+        "title": "Wo sehe ich meine Klasse?",
+        "summary": "Sehen Sie Ihre eingetragene Klasse auf der Classroom-Seite.",
+        "steps": [
+          "Klicken Sie im Menü auf Student > Classroom.",
+          "Ihre eingetragenen Klassen erscheinen in der Tabelle.",
+          "Filtern Sie schnell über die Suche nach Klassenname."
+        ],
+        "cta": "Zur Classroom-Seite"
+      },
+      "assignments": {
+        "title": "Wie sehe ich meine Aufgaben?",
+        "summary": "Alle Aufgaben Ihrer Klasse mit Aufgabe, Fach, Lehrer und Abgabetermin.",
+        "steps": [
+          "Klicken Sie im Menü auf Student > Assignments.",
+          "Prüfen Sie Aufgabe, Fach, Klasse, Deadline und Lehrer in der Tabelle.",
+          "Nutzen Sie die Suche, um nach Fach oder Aufgabe zu filtern."
+        ],
+        "cta": "Zur Assignments-Seite"
+      },
+      "schedule": {
+        "title": "Wo ist mein Stundenplan?",
+        "summary": "Verfolgen Sie geplante Unterrichtsstunden Ihrer Klasse auf der Schedule-Seite.",
+        "steps": [
+          "Klicken Sie im Menü auf Student > Schedule.",
+          "Sehen Sie Unterricht, Klasse, Datum, Uhrzeit und Lehrer in der Tabelle.",
+          "Filtern Sie nach Unterricht oder Klasse über die Suche."
+        ],
+        "cta": "Zur Schedule-Seite"
+      }
+    },
+    "teacher": {
+      "classroom": {
+        "title": "Wo sehe ich meine betreuten Klassen?",
+        "summary": "Prüfen Sie Klassen und Schüler, die Sie unterrichten.",
+        "steps": [
+          "Klicken Sie im Menü auf Academy > Classroom (Teacher).",
+          "Sehen Sie Klassenname, Kapazität und Schüler.",
+          "Filtern Sie nach Klassenname über die Suche."
+        ],
+        "cta": "Zur Classroom-Seite"
+      },
+      "schedule": {
+        "title": "Wie sehe ich meinen Stundenplan?",
+        "summary": "Überprüfen Sie Ihre zugewiesenen Stunden mit Datum/Uhrzeit und Klasse.",
+        "steps": [
+          "Klicken Sie auf Academy > Schedule.",
+          "Prüfen Sie Unterricht, Klasse, Datum und Uhrzeit in der Tabelle.",
+          "Filtern Sie nach Unterricht oder Klasse; Pagination zur Navigation."
+        ],
+        "cta": "Zur Schedule-Seite"
+      },
+      "assignments": {
+        "title": "Wie füge ich Aufgaben hinzu/verwalte sie?",
+        "summary": "Definieren Sie Aufgaben, laden Sie Dateien hoch und legen Sie Deadlines fest.",
+        "steps": [
+          "Klicken Sie auf Academy > Assignments.",
+          "Öffnen Sie Add, geben Sie Aufgabe, Fach, Klasse, Deadline und Datei ein.",
+          "Speichern Sie; sehen Sie Aufgaben in der Tabelle."
+        ],
+        "cta": "Zur Assignments-Seite"
+      }
+    },
+    "unknown": {
+      "register": {
+        "title": "Wie kann ich mich registrieren?",
+        "summary": "Wenn Sie kein Konto haben, kontaktieren Sie den Admin oder füllen Sie das Formular aus.",
+        "steps": [
+          "Klicken Sie auf der Login-Seite auf den Registrierungs- oder Kontaktlink.",
+          "Geben Sie Name, E-Mail und gewünschte Rolle an.",
+          "Nach Freigabe können Sie sich anmelden."
+        ],
+        "cta": "Kontakt"
+      },
+      "support": {
+        "title": "Wie bekomme ich Hilfe im Registrierungsprozess?",
+        "summary": "Kontaktieren Sie Support oder Admin bei Problemen mit Registrierung/Zugang.",
+        "steps": [
+          "Senden Sie Ihre Nachricht über Feedbacks.",
+          "Prüfen Sie Ihre E-Mail; folgen Sie den Anweisungen.",
+          "Bei Bedarf erneut schreiben, bis der Prozess abgeschlossen ist."
+        ],
+        "cta": "Zu Feedbacks"
+      }
+    },
+    "admin": {
+      "student": {
+        "title": "Wie erstelle ich einen Studenten?",
+        "summary": "Student anlegen und einer Klasse zuweisen.",
+        "steps": [
+          "Gehen Sie zu Students.",
+          "Klicken Sie auf Add.",
+          "Geben Sie die Studentendaten ein und wählen Sie die Klasse.",
+          "Speichern Sie und prüfen Sie, ob der Student zugewiesen ist."
+        ],
+        "cta": "Zu Students"
+      },
+      "teacher": {
+        "title": "Wie füge ich einen Lehrer hinzu?",
+        "summary": "Neuen Lehrer anlegen und Fächer zuweisen.",
+        "steps": [
+          "Gehen Sie zu Users oder Teachers.",
+          "Erstellen Sie den User/Teacher über Add.",
+          "Bei Bedarf Fächer/Unterricht über Edit in Teachers zuweisen."
+        ],
+        "cta": "Zu Teachers"
+      },
+      "lesson": {
+        "title": "Unterricht erstellen und Lehrer zuweisen",
+        "summary": "Neuen Unterricht anlegen und Lehrer verbinden.",
+        "steps": [
+          "Gehen Sie zu Manage > Lessons.",
+          "Klicken Sie auf Add, geben Sie Name und Kategorie ein.",
+          "Wählen Sie den Lehrer im Dropdown.",
+          "Speichern Sie."
+        ],
+        "cta": "Zu Lessons"
+      },
+      "classroom": {
+        "title": "Klasse erstellen und Schüler hinzufügen",
+        "summary": "Neue Klasse erstellen und vorhandene Schüler hinzufügen.",
+        "steps": [
+          "Gehen Sie zu Manage > Classroom und klicken Sie Add.",
+          "Klassenname und Kapazität eingeben und speichern.",
+          "In Students den Schüler mit Add der Klasse hinzufügen."
+        ],
+        "cta": "Zu Classroom"
+      },
+      "schedule": {
+        "title": "Stundenplaneintrag hinzufügen",
+        "summary": "Unterricht, Lehrer und Klasse verknüpfen.",
+        "steps": [
+          "Gehen Sie zu Manage > Schedule.",
+          "Tag, Zeit, Unterricht und Klasse wählen.",
+          "Speichern und in der Tabelle prüfen."
+        ],
+        "cta": "Zu Schedule"
+      },
+      "assignment": {
+        "title": "Aufgabe hinzufügen und Datei hochladen",
+        "summary": "Aufgaben anlegen und Dateien hochladen.",
+        "steps": [
+          "Klicken Sie auf Add in Assignments.",
+          "Titel, Unterricht, Klasse, Deadline und Datei angeben.",
+          "Speichern."
+        ],
+        "cta": "Zu Assignments"
+      }
+    }
+  },
+  "feedback": {
+    "label": "Feedback & Kontakt",
+    "title": "Wir freuen uns auf Ihr Feedback",
+    "subtitle": "Teilen Sie Vorschläge, Fehlerberichte oder Fragen. Füllen Sie das Formular aus oder schreiben Sie uns direkt per WhatsApp oder E-Mail.",
+    "responseTime": "Durchschnittliche Antwortzeit: 1 Werktag",
+    "form": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail",
+      "subject": "Betreff",
+      "message": "Ihre Nachricht",
+      "submit": "Feedback senden",
+      "note": "Das Formular öffnet Ihre Standard-Mail-App."
+    },
+    "contact": {
+      "whatsappTitle": "WhatsApp",
+      "whatsappDesc": "Senden Sie eine kurze Nachricht, wir antworten bald.",
+      "whatsappAction": "Auf WhatsApp schreiben",
+      "emailTitle": "E-Mail",
+      "emailDesc": "Für detaillierte Themen senden Sie eine E-Mail.",
+      "emailAction": "E-Mail senden",
+      "phoneTitle": "Telefon",
+      "phoneDesc": "Erreichbar an Werktagen.",
+      "phoneAction": "+62 822 9440 0729"
+    }
   }
 }
