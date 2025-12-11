@@ -30,9 +30,33 @@
       "classroomReports": "Classroom Reports",
       "teacherReports": "Teacher Reports",
       "studentReports": "Student Reports",
+      "tasks": "Tasks",
       "help": "Help",
       "feedbacks": "Feedbacks"
     }
+  },
+  "tasks": {
+    "title": "Tasks",
+    "subtitle": "Organize your work with drag & drop across columns. Add due dates and move items as they progress.",
+    "add": "New Task",
+    "modalTitle": "Create Task",
+    "form": {
+      "title": "Title",
+      "desc": "Description",
+      "status": "Status",
+      "date": "Due date",
+      "create": "Create",
+      "cancel": "Cancel"
+    },
+    "columns": {
+      "todo": "To Do",
+      "inProgress": "In Progress",
+      "onHold": "On Hold",
+      "done": "Done"
+    },
+    "empty": "Drop tasks here",
+    "due": "Due",
+    "delete": "Remove"
   },
   "table": {
     "noData": "There is no data.",

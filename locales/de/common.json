@@ -30,9 +30,33 @@
       "classroomReports": "Klassenberichte",
       "teacherReports": "Lehrerberichte",
       "studentReports": "Schülerberichte",
+      "tasks": "Aufgaben",
       "help": "Hilfe",
       "feedbacks": "Feedback"
     }
+  },
+  "tasks": {
+    "title": "Aufgaben",
+    "subtitle": "Organisieren Sie Ihre Arbeit per Drag & Drop zwischen Spalten. Fügen Sie Fälligkeiten hinzu und bewegen Sie Aufgaben fortlaufend.",
+    "add": "Neue Aufgabe",
+    "modalTitle": "Aufgabe erstellen",
+    "form": {
+      "title": "Titel",
+      "desc": "Beschreibung",
+      "status": "Status",
+      "date": "Fällig am",
+      "create": "Erstellen",
+      "cancel": "Abbrechen"
+    },
+    "columns": {
+      "todo": "Zu tun",
+      "inProgress": "In Arbeit",
+      "onHold": "Wartet",
+      "done": "Erledigt"
+    },
+    "empty": "Aufgaben hier ablegen",
+    "due": "Fällig",
+    "delete": "Löschen"
   },
   "table": {
     "noData": "Keine Daten verfügbar.",

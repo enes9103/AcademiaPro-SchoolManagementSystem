@@ -30,9 +30,33 @@
       "classroomReports": "Sınıf Raporları",
       "teacherReports": "Öğretmen Raporları",
       "studentReports": "Öğrenci Raporları",
+      "tasks": "Görevler",
       "help": "Yardım",
       "feedbacks": "Geribildirim"
     }
+  },
+  "tasks": {
+    "title": "Görevler",
+    "subtitle": "Görevlerinizi sürükle-bırak ile kolonlar arasında taşıyın. Tarih atayın ve ilerledikçe güncelleyin.",
+    "add": "Yeni Görev",
+    "modalTitle": "Görev Oluştur",
+    "form": {
+      "title": "Başlık",
+      "desc": "Açıklama",
+      "status": "Durum",
+      "date": "Bitiş tarihi",
+      "create": "Oluştur",
+      "cancel": "İptal"
+    },
+    "columns": {
+      "todo": "Yapılacak",
+      "inProgress": "Devam Ediyor",
+      "onHold": "Beklemede",
+      "done": "Tamamlandı"
+    },
+    "empty": "Görevleri buraya bırakın",
+    "due": "Tarih",
+    "delete": "Sil"
   },
   "table": {
     "noData": "Veri bulunmuyor.",
