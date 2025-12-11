@@ -95,6 +95,8 @@ export function StudentReportsTable({ rows }: { rows: StudentReportRow[] }) {
           </div>
         </>
       }
+      useUrlPagination
+      pageSize={10}
     />
   );
 }

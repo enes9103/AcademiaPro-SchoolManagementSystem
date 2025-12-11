@@ -81,6 +81,8 @@ export function TeacherReportsTable({ rows }: { rows: TeacherReportRow[] }) {
           </div>
         </>
       }
+      useUrlPagination
+      pageSize={10}
     />
   );
 }

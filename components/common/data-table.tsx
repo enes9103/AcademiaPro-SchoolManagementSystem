@@ -7,8 +7,10 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Table } from "@/components/common/table";
 import { TableShell } from "@/components/common/table-shell";
+import Pagination from "@/components/pagination/pagination";
 
 type DataTableProps<TData> = {
   columns: ColumnDef<TData, any>[];
@@ -20,6 +22,8 @@ type DataTableProps<TData> = {
   searchPlaceholder?: string;
   footer?: React.ReactNode;
   searchAddon?: React.ReactNode;
+  useUrlPagination?: boolean;
+  pageSize?: number;
 };
 
 export function DataTable<TData>({
@@ -32,8 +36,11 @@ export function DataTable<TData>({
   searchPlaceholder = "Search...",
   footer,
   searchAddon,
+  useUrlPagination = false,
+  pageSize = 10,
 }: DataTableProps<TData>) {
   const [query, setQuery] = useState("");
+  const searchParams = useSearchParams();
 
   const filtered = useMemo(() => {
     if (!enableSearch || !query) return data;
@@ -47,11 +54,35 @@ export function DataTable<TData>({
     );
   }, [data, enableSearch, query]);
 
+  const currentPage = useMemo(() => {
+    if (!useUrlPagination) return 1;
+    const param = Number(searchParams.get("page")) || 1;
+    return Math.max(1, param);
+  }, [searchParams, useUrlPagination]);
+
+  const paginatedData = useMemo(() => {
+    if (!useUrlPagination) return filtered;
+    const start = (currentPage - 1) * pageSize;
+    return filtered.slice(start, start + pageSize);
+  }, [currentPage, filtered, pageSize, useUrlPagination]);
+
   const table = useReactTable({
-    data: filtered,
+    data: paginatedData,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+
+  const totalPages = useMemo(
+    () => Math.max(1, Math.ceil(filtered.length / pageSize)),
+    [filtered.length, pageSize]
+  );
+
+  const effectiveFooter =
+    useUrlPagination && filtered.length > 0 ? (
+      <Pagination totalPages={totalPages} />
+    ) : (
+      footer
+    );
 
   const hasData = table.getRowModel().rows.length > 0;
 
@@ -129,8 +160,8 @@ export function DataTable<TData>({
           </tbody>
         </Table>
       </TableShell>
-      {footer && hasData && (
-        <div className="mt-2 flex justify-end">{footer}</div>
+      {effectiveFooter && hasData && (
+        <div className="mt-2 flex justify-end">{effectiveFooter}</div>
       )}
     </>
   );

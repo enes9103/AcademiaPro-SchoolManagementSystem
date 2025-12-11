@@ -79,6 +79,8 @@ export function ClassroomReportsTable({ rows }: { rows: ClassroomReportRow[] }) 
           </div>
         </>
       }
+      useUrlPagination
+      pageSize={10}
     />
   );
 }
