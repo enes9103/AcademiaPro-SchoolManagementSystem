@@ -12,7 +12,7 @@ const Header = (props: {
   return (
     <header className="sticky top-0 z-999 flex w-full border-b border-[var(--border-strong)] bg-[var(--surface-strong)] backdrop-blur-xl">
       <div className="flex flex-grow items-center justify-between px-4 py-4 md:px-6 2xl:px-8 text-[var(--text-primary)]">
-        <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
+        <div className="flex items-center gap-4 sm:gap-4 lg:hidden">
           <button
             aria-controls="sidebar"
             onClick={(e) => {
@@ -56,11 +56,18 @@ const Header = (props: {
 
           <Link className="block flex-shrink-0 lg:hidden" href="/">
             <Image
-              width={32}
-              height={32}
+              width={120}
+              height={28}
               src="/AcademiaPro-logo-sm.png"
               alt="Logo"
-              className="h-12"
+              className="h-10 w-auto dark:hidden"
+            />
+            <Image
+              width={120}
+              height={28}
+              src="/AcademiaPro-logo-sm-dark.png"
+              alt="Logo"
+              className="hidden h-10 w-auto dark:block"
             />
           </Link>
         </div>
