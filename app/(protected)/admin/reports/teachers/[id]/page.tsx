@@ -2,9 +2,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FiArrowLeft } from "react-icons/fi";
 import { db } from "@/lib/db";
-import { TeacherScheduleRow, TeacherScheduleTable } from "@/components/reports/TeacherScheduleTable";
+import {
+  TeacherScheduleRow,
+  TeacherScheduleTable,
+} from "@/components/reports/TeacherScheduleTable";
 
-const TeacherReportDetailPage = async ({ params }: { params: { id: string } }) => {
+const TeacherReportDetailPage = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
   const teacher = await db.teachers
     .findUnique({
       where: { id: params.id },
@@ -56,7 +63,7 @@ const TeacherReportDetailPage = async ({ params }: { params: { id: string } }) =
   });
 
   return (
-    <div className="surface-panel min-h-screen px-4 py-12">
+    <div className="surface-panel rounded-3xl px-6 pb-4 pt-5 sm:px-8">
       <div className="mx-auto w-full max-w-6xl space-y-6">
         <div className="flex items-center gap-3">
           <Link
@@ -71,7 +78,9 @@ const TeacherReportDetailPage = async ({ params }: { params: { id: string } }) =
               {teacher.name}
             </h1>
             {teacher.user?.email && (
-              <p className="text-sm text-[var(--text-muted)]">{teacher.user.email}</p>
+              <p className="text-sm text-[var(--text-muted)]">
+                {teacher.user.email}
+              </p>
             )}
           </div>
         </div>
