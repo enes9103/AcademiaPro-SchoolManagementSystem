@@ -4,6 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/common/data-table";
 import Pagination from "@/components/pagination/pagination";
 import Add from "@/components/TbStudent/btn/add";
+import { useTranslation } from "react-i18next";
 
 type StudentRow = {
   id: string;
@@ -24,13 +25,14 @@ export function StudentTableAdmin({
   totalPages: number;
   classrooms: any[];
 }) {
+  const { t } = useTranslation();
   const columns: ColumnDef<StudentRow>[] = [
-    { header: "Name", accessorKey: "name", size: 200 },
-    { header: "Email", accessorKey: "email", size: 220 },
-    { header: "Classroom", accessorKey: "classrooms", size: 200 },
-    { header: "Status", accessorKey: "status", size: 150 },
+    { header: t("manage.users.columns.name"), accessorKey: "name", size: 200 },
+    { header: t("manage.users.columns.email"), accessorKey: "email", size: 220 },
+    { header: t("manage.users.columns.classroom"), accessorKey: "classrooms", size: 200 },
+    { header: t("manage.users.columns.status"), accessorKey: "status", size: 150 },
     {
-      header: "Actions",
+      header: t("manage.users.columns.actions"),
       cell: ({ row }) => (
         <div className="flex items-center space-x-3.5">
           <Add classrooms={classrooms} student={row.original.raw} />
@@ -41,8 +43,8 @@ export function StudentTableAdmin({
 
   return (
     <DataTable
-      label="Users"
-      title="Student List"
+      label={t("manage.label")}
+      title={t("manage.students.title")}
       columns={columns}
       data={rows}
       footer={<Pagination totalPages={totalPages} />}

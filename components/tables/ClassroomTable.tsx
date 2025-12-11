@@ -6,6 +6,7 @@ import Del from "@/components/TbClassroom/btn/del";
 import Edt from "@/components/TbClassroom/btn/edt";
 import Ad from "@/components/TbClassroom/btn/ad";
 import Pagination from "@/components/pagination/pagination";
+import { useTranslation } from "react-i18next";
 
 type ClassroomRow = {
   id: string;
@@ -21,12 +22,13 @@ export function ClassroomTable({
   rows: ClassroomRow[];
   totalPages: number;
 }) {
+  const { t } = useTranslation();
   const columns: ColumnDef<ClassroomRow>[] = [
-    { header: "Classroom", accessorKey: "name", size: 220 },
-    { header: "Capacity", accessorKey: "cap", size: 150 },
-    { header: "Total Student", accessorKey: "totalStudents", size: 150 },
+    { header: t("manage.users.columns.classroom"), accessorKey: "name", size: 220 },
+    { header: t("manage.users.columns.capacity"), accessorKey: "cap", size: 150 },
+    { header: t("manage.users.columns.totalStudents"), accessorKey: "totalStudents", size: 150 },
     {
-      header: "Actions",
+      header: t("manage.users.columns.actions"),
       cell: ({ row }) => (
         <div className="flex items-center gap-3">
           <Del classroom={row.original} />
@@ -38,8 +40,8 @@ export function ClassroomTable({
 
   return (
     <DataTable
-      label="Manage"
-      title="Classrooms"
+      label={t("manage.label")}
+      title={t("manage.classrooms.title")}
       actions={<Ad />}
       columns={columns}
       data={rows}

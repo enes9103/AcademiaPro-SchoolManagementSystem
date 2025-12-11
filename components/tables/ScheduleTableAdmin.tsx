@@ -6,6 +6,7 @@ import Del from "@/components/TbSchedule/btn/del";
 import Edt from "@/components/TbSchedule/btn/edt";
 import Ad from "@/components/TbSchedule/btn/ad";
 import Pagination from "@/components/pagination/pagination";
+import { useTranslation } from "react-i18next";
 
 type ScheduleRow = {
   id: string;
@@ -27,14 +28,15 @@ export function ScheduleTableAdmin({
   lessons: any[];
   classrooms: any[];
 }) {
+  const { t } = useTranslation();
   const columns: ColumnDef<ScheduleRow>[] = [
-    { header: "Lesson", accessorKey: "lessonName", size: 200 },
-    { header: "Classroom", accessorKey: "classroomName", size: 180 },
-    { header: "Teacher", accessorKey: "teacherName", size: 180 },
-    { header: "Day", accessorKey: "dayLabel", size: 150 },
-    { header: "Time", accessorKey: "time", size: 120 },
+    { header: t("manage.users.columns.lesson"), accessorKey: "lessonName", size: 200 },
+    { header: t("manage.users.columns.classroom"), accessorKey: "classroomName", size: 180 },
+    { header: t("manage.users.columns.teacher"), accessorKey: "teacherName", size: 180 },
+    { header: t("manage.users.columns.day"), accessorKey: "dayLabel", size: 150 },
+    { header: t("manage.users.columns.time"), accessorKey: "time", size: 120 },
     {
-      header: "Actions",
+      header: t("manage.users.columns.actions"),
       cell: ({ row }) => (
         <div className="flex items-center space-x-3.5">
           <Del schedule={row.original as any} />
@@ -50,8 +52,8 @@ export function ScheduleTableAdmin({
 
   return (
     <DataTable
-      label="Manage"
-      title="Schedule"
+      label={t("manage.label")}
+      title={t("manage.schedule.title")}
       actions={<Ad lessons={lessons} classrooms={classrooms} />}
       columns={columns}
       data={rows}

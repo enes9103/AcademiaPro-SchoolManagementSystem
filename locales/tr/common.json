@@ -281,5 +281,52 @@
         "time": "Saat"
       }
     }
+  },
+  "manage": {
+    "label": "Yönetim",
+    "students": {
+      "title": "Öğrenci Listesi"
+    },
+    "teachers": {
+      "title": "Öğretmen Listesi"
+    },
+    "users": {
+      "label": "Kullanıcılar",
+      "title": "Kullanıcı Listesi",
+      "columns": {
+        "name": "Ad",
+        "email": "E-posta",
+        "role": "Rol",
+        "status": "Durum",
+        "classroom": "Sınıf",
+        "gender": "Cinsiyet",
+        "capacity": "Kapasite",
+        "actions": "İşlemler",
+        "totalStudents": "Toplam Öğrenci",
+        "lesson": "Ders",
+        "category": "Kategori",
+        "teacher": "Öğretmen",
+        "day": "Gün",
+        "time": "Saat",
+        "file": "Dosya",
+        "deadline": "Teslim Tarihi",
+        "task": "Ad",
+        "link": "Link",
+        "nofile": "Dosya yok",
+        "createdBy": "Oluşturan"
+      }
+    },
+    "classrooms": {
+      "title": "Sınıflar"
+    },
+    "lessons": {
+      "title": "Dersler"
+    },
+    "schedule": {
+      "title": "Program"
+    },
+    "assignments": {
+      "title": "Ödevler"
+    }
   }
 }

@@ -281,5 +281,52 @@
         "time": "Zeit"
       }
     }
+  },
+  "manage": {
+    "label": "Verwaltung",
+    "students": {
+      "title": "Schülerliste"
+    },
+    "teachers": {
+      "title": "Lehrerliste"
+    },
+    "users": {
+      "label": "Benutzer",
+      "title": "Benutzerliste",
+      "columns": {
+        "name": "Name",
+        "email": "E-Mail",
+        "role": "Rolle",
+        "status": "Status",
+        "classroom": "Klasse",
+        "gender": "Geschlecht",
+        "capacity": "Kapazität",
+        "actions": "Aktionen",
+        "totalStudents": "Gesamt Schüler",
+        "lesson": "Unterricht",
+        "category": "Kategorie",
+        "teacher": "Lehrer",
+        "day": "Tag",
+        "time": "Zeit",
+        "file": "Datei",
+        "deadline": "Fällig",
+        "task": "Name",
+        "link": "Link",
+        "nofile": "Keine Datei",
+        "createdBy": "Erstellt von"
+      }
+    },
+    "classrooms": {
+      "title": "Klassen"
+    },
+    "lessons": {
+      "title": "Unterricht"
+    },
+    "schedule": {
+      "title": "Stundenplan"
+    },
+    "assignments": {
+      "title": "Aufgaben"
+    }
   }
 }

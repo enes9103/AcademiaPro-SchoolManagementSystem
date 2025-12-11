@@ -6,6 +6,7 @@ import Del from "@/components/TbAssignment/btn/del";
 import Edt from "@/components/TbAssignment/btn/edt";
 import Ad from "@/components/TbAssignment/btn/ad";
 import Pagination from "@/components/pagination/pagination";
+import { useTranslation } from "react-i18next";
 
 type AssignmentRow = {
   id: string;
@@ -29,13 +30,14 @@ export function AssignmentTableAdmin({
   lessons: any[];
   classrooms: any[];
 }) {
+  const { t } = useTranslation();
   const columns: ColumnDef<AssignmentRow>[] = [
-    { header: "Lesson", accessorKey: "lessonName", size: 220 },
-    { header: "Name", accessorKey: "task", size: 150 },
-    { header: "CreateBy", accessorKey: "teacherName", size: 150 },
-    { header: "Classroom", accessorKey: "classroomName", size: 150 },
+    { header: t("manage.users.columns.lesson"), accessorKey: "lessonName", size: 220 },
+    { header: t("manage.users.columns.task"), accessorKey: "task", size: 150 },
+    { header: t("manage.users.columns.createdBy"), accessorKey: "teacherName", size: 150 },
+    { header: t("manage.users.columns.classroom"), accessorKey: "classroomName", size: 150 },
     {
-      header: "File",
+      header: t("manage.users.columns.file"),
       cell: ({ row }) =>
         row.original.fileUrl ? (
           <a
@@ -44,16 +46,18 @@ export function AssignmentTableAdmin({
             target="_blank"
             rel="noreferrer"
           >
-            Link
+            {t("manage.users.columns.link")}
           </a>
         ) : (
-          <span className="text-[var(--text-muted)]">No file</span>
+          <span className="text-[var(--text-muted)]">
+            {t("manage.users.columns.nofile")}
+          </span>
         ),
     },
-    { header: "Deadline", accessorKey: "deadlineLabel", size: 150 },
-    { header: "Time", accessorKey: "time", size: 150 },
+    { header: t("manage.users.columns.deadline"), accessorKey: "deadlineLabel", size: 150 },
+    { header: t("manage.users.columns.time"), accessorKey: "time", size: 150 },
     {
-      header: "Actions",
+      header: t("manage.users.columns.actions"),
       cell: ({ row }) => (
         <div className="flex items-center space-x-3.5">
           <Del assignment={row.original as any} />
@@ -69,8 +73,8 @@ export function AssignmentTableAdmin({
 
   return (
     <DataTable
-      label="Manage"
-      title="Assignments"
+      label={t("manage.label")}
+      title={t("manage.assignments.title")}
       actions={<Ad lessons={lessons} classrooms={classrooms} />}
       columns={columns}
       data={rows}

@@ -281,5 +281,52 @@
         "time": "Time"
       }
     }
+  },
+  "manage": {
+    "label": "Manage",
+    "students": {
+      "title": "Student List"
+    },
+    "teachers": {
+      "title": "Teacher List"
+    },
+    "users": {
+      "label": "Users",
+      "title": "User List",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status",
+        "classroom": "Classroom",
+        "gender": "Gender",
+        "capacity": "Capacity",
+        "actions": "Actions",
+        "totalStudents": "Total Students",
+        "lesson": "Lesson",
+        "category": "Category",
+        "teacher": "Teacher",
+        "day": "Day",
+        "time": "Time",
+        "file": "File",
+        "deadline": "Deadline",
+        "task": "Name",
+        "link": "Link",
+        "nofile": "No file",
+        "createdBy": "Created By"
+      }
+    },
+    "classrooms": {
+      "title": "Classrooms"
+    },
+    "lessons": {
+      "title": "Lessons"
+    },
+    "schedule": {
+      "title": "Schedule"
+    },
+    "assignments": {
+      "title": "Assignments"
+    }
   }
 }
