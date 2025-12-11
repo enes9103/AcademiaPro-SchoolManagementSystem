@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+:root {
+    --bg: #e9ecf4;
+    --bg-gradient: radial-gradient(circle at 18% 20%, rgba(244, 123, 49, 0.12), transparent 34%), radial-gradient(circle at 80% 12%, rgba(75, 63, 114, 0.12), transparent 32%), radial-gradient(circle at 62% 78%, rgba(217, 227, 92, 0.12), transparent 32%);
+    --text-primary: #141824;
+    --text-muted: #4f5668;
+    --surface: #f7f8fd;
+    --surface-hover: #ffffff;
+    --surface-strong: #e4e7f2;
+    --panel: #fdfdff;
+    --border: rgba(20, 24, 36, 0.12);
+    --border-strong: rgba(20, 24, 36, 0.2);
+    --accent: #f47b31;
+    --accent-soft: rgba(244, 123, 49, 0.16);
+    --shadow: 0 18px 60px -30px rgba(20, 24, 36, 0.22);
+  }
+
+  .dark {
+    --bg: #0b1220;
+    --bg-gradient: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.13), transparent 32%), radial-gradient(circle at 80% 10%, rgba(94, 234, 212, 0.12), transparent 30%), radial-gradient(circle at 60% 80%, rgba(129, 140, 248, 0.12), transparent 30%);
+    --text-primary: #e2e8f0;
+    --text-muted: #cbd5e1;
+    --surface: rgba(255, 255, 255, 0.05);
+    --surface-hover: rgba(255, 255, 255, 0.08);
+    --surface-strong: rgba(255, 255, 255, 0.08);
+    --panel: rgba(15, 23, 42, 0.6);
+    --border: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --accent: #60a5fa;
+    --accent-soft: rgba(96, 165, 250, 0.16);
+    --shadow: 0 18px 60px -30px rgba(0, 0, 0, 0.75);
+  }
+
+  body {
+    @apply min-h-screen font-sans text-base antialiased;
+    background: var(--bg);
+    color: var(--text-primary);
+    background-image: var(--bg-gradient);
+  }
+
+  .surface-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    box-shadow: var(--shadow);
+  }
+
+  .surface-card:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-hover);
+  }
+
+  .surface-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    box-shadow: var(--shadow);
+  }
+
+  .muted {
+    color: var(--text-muted);
+  }
+
+  .accent-chip {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--border);
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
+  .font-grotesk {
+    font-family: var(--font-space-grotesk), var(--font-inter), system-ui,
+      -apple-system, "Segoe UI", sans-serif;
+  }
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .chat-height {
+    @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+  }
+
+  .inbox-height {
+    @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+  }
+}
+
+/* third-party libraries CSS */
+
+.tableCheckbox:checked ~ div span {
+  @apply opacity-100;
+}
+
+.tableCheckbox:checked ~ div {
+  @apply border-primary bg-primary;
+}
+
+.apexcharts-legend-text {
+  @apply !text-body dark:!text-bodydark;
+}
+
+.apexcharts-text {
+  @apply !fill-body dark:!fill-bodydark;
+}
+
+.apexcharts-xcrosshairs {
+  @apply !fill-stroke dark:!fill-strokedark;
+}
+
+.apexcharts-gridline {
+  @apply !stroke-stroke dark:!stroke-strokedark;
+}
+
+.apexcharts-series.apexcharts-pie-series path {
+  @apply dark:!stroke-transparent;
+}
+
+.apexcharts-legend-series {
+  @apply !inline-flex gap-1.5;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+  @apply dark:!border-strokedark dark:!bg-boxdark;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+  @apply dark:!border-strokedark dark:!bg-meta-4;
+}
+
+.apexcharts-xaxistooltip,
+.apexcharts-yaxistooltip {
+  @apply dark:!border-meta-4 dark:!bg-meta-4 dark:!text-bodydark1;
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  @apply !border-b-gray dark:!border-b-meta-4;
+}
+
+.apexcharts-xaxistooltip-bottom:before {
+  @apply !border-b-gray dark:!border-b-meta-4;
+}
+
+.apexcharts-xaxistooltip-bottom {
+  @apply !rounded !border-none !bg-gray !text-xs !font-medium !text-black dark:!text-white;
+}
+
+.apexcharts-tooltip-series-group {
+  @apply !pl-1.5;
+}
+
+.flatpickr-wrapper {
+  @apply w-full;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg {
+  @apply !fill-primary;
+}
+
+.flatpickr-calendar.arrowTop:before {
+  @apply dark:!border-b-boxdark;
+}
+
+.flatpickr-calendar.arrowTop:after {
+  @apply dark:!border-b-boxdark;
+}
+
+.flatpickr-calendar {
+  @apply !p-6 dark:!bg-boxdark dark:!text-bodydark dark:!shadow-8 2xsm:!w-auto;
+}
+
+.flatpickr-day {
+  @apply dark:!text-bodydark dark:hover:!border-meta-4 dark:hover:!bg-meta-4;
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+  @apply !top-7 dark:!fill-white dark:!text-white;
+}
+
+.flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month.flatpickr-prev-month {
+  @apply !left-7;
+}
+
+.flatpickr-months .flatpickr-prev-month.flatpickr-next-month,
+.flatpickr-months .flatpickr-next-month.flatpickr-next-month {
+  @apply !right-7;
+}
+
+span.flatpickr-weekday,
+.flatpickr-months .flatpickr-month {
+  @apply dark:!fill-white dark:!text-white;
+}
+
+.flatpickr-day.inRange {
+  box-shadow:
+    -5px 0 0 #f3f4f6,
+    5px 0 0 #f3f4f6 !important;
+  @apply dark:!shadow-7;
+}
+
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.today.inRange,
+.flatpickr-day.nextMonthDay.today.inRange,
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day:focus,
+.flatpickr-day.prevMonthDay:focus,
+.flatpickr-day.nextMonthDay:focus {
+  @apply !border-[#F3F4F6] !bg-[#F3F4F6] dark:!border-meta-4 dark:!bg-meta-4;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.selected,
+.flatpickr-day.endRange {
+  @apply dark:!text-white;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+  background: #3c50e0;
+  @apply !border-primary !bg-primary hover:!border-primary hover:!bg-primary;
+}
+
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n + 1)),
+.flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n + 1)),
+.flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n + 1)) {
+  box-shadow: -10px 0 0 #3c50e0;
+}
+
+.map-btn .jvm-zoom-btn {
+  @apply flex h-7.5 w-7.5 items-center justify-center rounded border border-stroke bg-white px-0 pb-0.5 pt-0 text-2xl leading-none text-body hover:border-primary hover:bg-primary hover:text-white dark:border-strokedark dark:bg-meta-4 dark:text-bodydark dark:hover:border-primary dark:hover:bg-primary dark:hover:text-white;
+}
+
+.mapOne .jvm-zoom-btn {
+  @apply !bottom-0 !left-auto !top-auto;
+}
+
+.mapOne .jvm-zoom-btn.jvm-zoomin {
+  @apply !right-10;
+}
+
+.mapOne .jvm-zoom-btn.jvm-zoomout {
+  @apply !right-0;
+}
+
+.taskCheckbox:checked ~ .box span {
+  @apply opacity-100;
+}
+
+.taskCheckbox:checked ~ p {
+  @apply line-through;
+}
+
+.taskCheckbox:checked ~ .box {
+  @apply border-primary bg-primary dark:border-primary;
+}
+.custom-input-date::-webkit-calendar-picker-indicator {
+  background: transparent;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  @apply appearance-none;
+}
+
+.custom-input-date::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+[x-cloak] {
+  display: none !important;
+}
+.btnDel {
+  @apply rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-semibold text-[var(--text-primary)] shadow transition hover:brightness-95 outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
+}
+
+.btnAdd {
+  @apply rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white shadow transition hover:brightness-95 outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
+}
+
+.btnEdt {
+  @apply rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-semibold text-[var(--text-primary)] shadow transition hover:brightness-95 outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
+}
+
+.btnSave {
+  @apply rounded-full bg-emerald-400 px-4 py-2 text-sm font-semibold uppercase text-white shadow transition hover:brightness-95 outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
+}
+
+.btnClose {
+  @apply rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-semibold text-[var(--text-primary)] transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-hover)] outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
+}
+
+.btnDownload {
+  @apply rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold text-white shadow transition hover:brightness-95 outline-none focus:outline-none mr-1 mb-1 ease-linear duration-150;
+}
