@@ -2,13 +2,13 @@ import React from "react";
 import Dashboard from "@/components/Dashboard/Dashboard";
 import { getTotals } from "@/data/card";
 import { auth } from "@/auth";
-import { UserRole } from "@prisma/client";
+import { UserRole, UserStatus } from "@prisma/client";
 import { UnknownHome } from "@/components/home/UnknownHome";
 
 const Home = async () => {
   const session = await auth();
 
-  if (session?.user?.role === UserRole.UNKNOW) {
+  if (!session?.user || session.user.status !== UserStatus.ACTIVE || session?.user?.role === UserRole.UNKNOW) {
     return <UnknownHome />;
   }
 

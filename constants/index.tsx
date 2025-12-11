@@ -244,9 +244,6 @@ export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
       {
         allowedStatus: [
           UserStatus.ACTIVE,
-          UserStatus.IN_ACTIVE,
-          UserStatus.BANNED,
-          UserStatus.UNKNOW,
         ],
         allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT],
         title: "Tasks",
