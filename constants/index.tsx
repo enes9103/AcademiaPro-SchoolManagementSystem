@@ -10,12 +10,12 @@ import { UserRole, UserStatus } from "@prisma/client";
 export const SIDEBAR_ITEMS: SideNavItemGroup[] = [
   {
     title: "Dashboards",
-    allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT],
-    allowedStatus: [UserStatus.ACTIVE],
+    allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT, UserRole.UNKNOW],
+    allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW],
     menuList: [
       {
-        allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT],
-        allowedStatus: [UserStatus.ACTIVE],
+        allowedRole: [UserRole.ADMIN, UserRole.TEACHER, UserRole.STUDENT, UserRole.UNKNOW],
+        allowedStatus: [UserStatus.ACTIVE, UserStatus.UNKNOW],
         title: "Dashboard",
         path: "/home",
         icon: <BsHouseDoor size={20} />,

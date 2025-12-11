@@ -181,11 +181,39 @@ const teacherItems: Item[] = [
   },
 ];
 
+const unknownItems: Item[] = [
+  {
+    id: "unknown-register",
+    title: "Sisteme nasıl kayıt olabilirim?",
+    summary:
+      "Hesabınız yoksa kayıt için yöneticinizle iletişime geçin veya kayıt formunu doldurun.",
+    steps: [
+      "Giriş ekranındaki kayıt talebi veya iletişim linkine tıklayın.",
+      "Ad, e-posta ve rol bilgilerinizi iletin.",
+      "Yönetici hesabınızı onayladığında giriş yapabilirsiniz.",
+    ],
+    cta: { label: "İletişime geç", href: "/feedbacks" },
+  },
+  {
+    id: "unknown-support",
+    title: "Kayıt sürecinde destek nasıl alırım?",
+    summary:
+      "Kayıt veya erişimle ilgili sorunlarda destek ekibine veya yöneticiye mesaj bırakın.",
+    steps: [
+      "Feedbacks sayfasından mesajınızı iletin.",
+      "E-postanızı kontrol edin; yanıt geldiğinde yönlendirmeleri uygulayın.",
+      "Gerekirse tekrar yazın; süreç tamamlanana kadar destek verilir.",
+    ],
+    cta: { label: "Feedbacks sayfasına git", href: "/feedbacks" },
+  },
+];
+
 const HelpPage = () => {
   const role = useCurrentRole();
   const list = useMemo(() => {
     if (role === UserRole.STUDENT) return studentItems;
     if (role === UserRole.TEACHER) return teacherItems;
+    if (role === UserRole.UNKNOW) return unknownItems;
     return items;
   }, [role]);
 
