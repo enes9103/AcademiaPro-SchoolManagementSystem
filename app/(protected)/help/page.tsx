@@ -1,24 +1,180 @@
-import React from "react";
+﻿"use client";
+
+import React, { useState } from "react";
+import { FiChevronDown, FiChevronUp, FiExternalLink } from "react-icons/fi";
+
+type Item = {
+  id: string;
+  title: string;
+  summary: string;
+  steps: string[];
+  cta?: { label: string; href: string };
+};
+
+const items: Item[] = [
+  {
+    id: "student-create",
+    title: "Öğrenci nasıl oluşturabilirim?",
+    summary:
+      "Admin panelinde öğrenci kaydı açıp ilgili sınıfa ekleme adımları.",
+    steps: [
+      "Sol menüden Students sayfasına gidin.",
+      "Sağ üstteki Add butonuna tıklayın.",
+      "Formda öğrenci bilgilerini girin ve sınıf seçimini yapın.",
+      "Save Changes ile kaydedin; ardından öğrenciyi sınıfa eklediğinizi kontrol edin.",
+    ],
+    cta: {
+      label: "Students sayfasına git",
+      href: "/protected/admin/list/student",
+    },
+  },
+  {
+    id: "teacher-create",
+    title: "Öğretmen nasıl eklenir?",
+    summary: "Yeni öğretmen hesabı açma ve ders atama süreci.",
+    steps: [
+      "Users veya Teachers sayfasına gidin.",
+      "Add butonuyla kullanıcı/öğretmen kartını oluşturun.",
+      "Gerekirse Teacher tablosundan Edit ile branş/ders atamasını yapın.",
+    ],
+    cta: {
+      label: "Teachers sayfasına git",
+      href: "/protected/admin/list/teacher",
+    },
+  },
+  {
+    id: "lesson-create",
+    title: "Ders nasıl oluşturulur ve öğretmen atanır?",
+    summary: "Yeni ders açma ve ilgili öğretmeni bağlama adımları.",
+    steps: [
+      "Manage > Lessons sayfasına gidin.",
+      "Add butonuna basın, ders adını ve kategorisini girin.",
+      "Teacher açılır listesinden dersi verecek öğretmeni seçin.",
+      "Save Changes ile kaydedin.",
+    ],
+    cta: {
+      label: "Lessons sayfasına git",
+      href: "/protected/admin/manage/lesson",
+    },
+  },
+  {
+    id: "classroom-create",
+    title: "Sınıf nasıl oluşturulur ve öğrenci eklenir?",
+    summary: "Yeni sınıf oluşturup mevcut öğrencileri ekleme akışı.",
+    steps: [
+      "Manage > Classroom sayfasına gidin ve Add butonuna tıklayın.",
+      "Sınıf adı ve kapasiteyi girin, Save Changes ile kaydedin.",
+      "Students sayfasında ilgili öğrenci için Add ile sınıfa ekleyin.",
+    ],
+    cta: {
+      label: "Classrooms sayfasına git",
+      href: "/protected/admin/manage/classroom",
+    },
+  },
+  {
+    id: "schedule-add",
+    title: "Ders programına oturum nasıl eklerim?",
+    summary: "Ders, öğretmen ve sınıfı eşleştirerek program girişi yapma.",
+    steps: [
+      "Manage > Schedule sayfasına gidin.",
+      "Add butonuyla gün, saat, ders ve sınıf seçimini yapın.",
+      "Save Changes ile kaydedin; tablo üzerinden kontrol edin.",
+    ],
+    cta: {
+      label: "Schedule sayfasına git",
+      href: "/protected/admin/manage/schedule",
+    },
+  },
+  {
+    id: "assignment-add",
+    title: "Ödev nasıl eklenir ve dosya yüklenir?",
+    summary: "Öğretmenler için ödev oluşturma ve dosya yükleme adımları.",
+    steps: [
+      "Assignments sayfasında Add butonuna tıklayın.",
+      "Başlık, ders, sınıf ve teslim tarihini girin.",
+      "Gerekirse dosya ekleyin ve Save Changes ile kaydedin.",
+    ],
+    cta: {
+      label: "Assignments sayfasına git",
+      href: "/protected/teacher/assignment",
+    },
+  },
+];
 
 const HelpPage = () => {
+  const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
+
+  const toggle = (id: string) => {
+    setOpenId((prev) => (prev === id ? null : id));
+  };
+
   return (
-    <div>
-      <div className="py-2">
-        <div className="help-container max-w-xl mx-auto p-8 bg-gray-100 border border-gray-300 rounded-lg shadow-lg dark:bg-boxdark">
-          <h1 className="help-title text-2xl font-bold text-gray-800">
-            Need Help?
-          </h1>
-          <p className="help-description text-gray-700">
-            Welcome to the help page! We here to assist you with any issues or
-            questions you may have.
+    <div className="surface-panel rounded-3xl px-6 py-6 sm:px-8">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
+        <header className="space-y-3">
+          <p className="text-sm uppercase tracking-[0.25em] text-[var(--text-muted)]">
+            Yardım & Dokümantasyon
           </p>
-          <ul className="help-list list-disc list-inside pl-4 text-gray-700">
-            <li>Step 1: Logout </li>
-            <li>Step 2: Login As Admin</li>
-            <li>Step 3: Go to User List </li>
-            <li>Step 4: Edit Your Account Status Or Role </li>
-            <li>Step 5: Login With Your Account </li>
-          </ul>
+          <h1 className="text-3xl font-bold text-[var(--text-primary)] md:text-4xl">
+            Sık Sorulan İşlemler
+          </h1>
+          <p className="max-w-3xl text-[var(--text-muted)]">
+            Aşağıdaki akordiyon listeden ihtiyacınız olan adımı açın. Her başlık
+            altında özet, adım adım yapılacaklar ve ilgili sayfaya hızlı erişim
+            bağlantısı bulunur.
+          </p>
+        </header>
+
+        <div className="space-y-3">
+          {items.map((item) => {
+            const isOpen = openId === item.id;
+            return (
+              <div
+                key={item.id}
+                className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white/80 shadow-[0_18px_60px_-30px_rgba(20,24,36,0.12)] backdrop-blur transition hover:border-[var(--border-strong)] dark:border-white/10 dark:bg-white/5"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(item.id)}
+                  className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left"
+                >
+                  <div className="space-y-1">
+                    <p className="text-sm font-semibold text-[var(--text-primary)]">
+                      {item.title}
+                    </p>
+                    <p className="text-sm text-[var(--text-muted)]">
+                      {item.summary}
+                    </p>
+                  </div>
+                  <span className="rounded-full bg-[var(--accent-soft)] p-2 text-[var(--accent)]">
+                    {isOpen ? (
+                      <FiChevronUp className="h-5 w-5" />
+                    ) : (
+                      <FiChevronDown className="h-5 w-5" />
+                    )}
+                  </span>
+                </button>
+                {isOpen && (
+                  <div className="border-t border-[var(--border)] px-5 py-4 text-sm text-[var(--text-primary)] dark:border-white/10">
+                    <ul className="mb-4 list-disc space-y-1 pl-5 text-[var(--text-muted)]">
+                      {item.steps.map((step, idx) => (
+                        <li key={idx}>{step}</li>
+                      ))}
+                    </ul>
+                    {item.cta && (
+                      <a
+                        href={item.cta.href}
+                        className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-3 py-2 text-sm font-semibold text-white shadow transition hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40"
+                      >
+                        {item.cta.label}
+                        <FiExternalLink className="h-4 w-4" />
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
