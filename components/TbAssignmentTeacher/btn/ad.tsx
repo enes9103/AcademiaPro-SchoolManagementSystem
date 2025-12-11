@@ -7,6 +7,7 @@ import { storage } from "@/lib/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { deleteFileOnZodError } from "@/actions/deleteFile";
 import { useToast } from "@/components/ui/use-toast";
+import { Modal } from "@/components/common/modal";
 interface AdProps {
   lessons: Lessons[];
   classrooms: Classrooms[];
@@ -26,7 +27,6 @@ const Ad = ({ lessons, classrooms }: AdProps) => {
   const handleSelectedFile = (files: any) => {
     if (files && files[0].size < 10000000) {
       setFile(files[0]);
-      console.log(files[0]);
     } else {
       toast({
         variant: "destructive",
@@ -132,165 +132,124 @@ const Ad = ({ lessons, classrooms }: AdProps) => {
 
   return (
     <>
-      <button
-        className="btnAdd"
-        type="button"
-        onClick={() => setShowModal(true)}
-      >
+      <button className="btnAdd" type="button" onClick={() => setShowModal(true)}>
         Add
       </button>
-      {showModal ? (
-        <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed top-25 right-10 left-10 bottom-25 xsm:left-4 xsm:right-4 lg:left-80 z-50 outline-none focus:outline-none">
-            <div className="relative w-full my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:border-strokedark dark:bg-boxdark outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold text-black dark:text-white">
-                    Add Assignment
-                  </h3>
-                </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <form>
-                    <label
-                      htmlFor="task"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Name Task:
-                    </label>
-                    <input
-                      name="task"
-                      type="text"
-                      id="task"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      placeholder="Name of Task"
-                      value={task}
-                      onChange={(e) => setTask(e.target.value)}
-                    />
-                    <label
-                      htmlFor="lesson"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Lesson:
-                    </label>
-                    <select
-                      name="lesson"
-                      id="lesson"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={lesson}
-                      onChange={(e) => {
-                        const selectedLesson = lessons.find(
-                          (l) => l.id === e.target.value
-                        );
-                        if (selectedLesson) {
-                          setLesson(selectedLesson.id);
-                          setTeacherId(selectedLesson.teacherId);
-                        }
-                      }}
-                    >
-                      <option value="" hidden>
-                        Select Lesson
-                      </option>
-                      {lessons.map((lesson) => (
-                        <option value={lesson.id} key={lesson.id}>
-                          {lesson.name}
-                        </option>
-                      ))}
-                    </select>
-                    <label
-                      htmlFor="classroom"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Classroom:
-                    </label>
-                    <select
-                      name="classroom"
-                      id="classroom"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={classroom}
-                      onChange={(e) => setClassroom(e.target.value)}
-                    >
-                      <option value="" hidden>
-                        Select Classroom
-                      </option>
-                      {classrooms.map((classroom) => (
-                        <option value={classroom.id} key={classroom.id}>
-                          {classroom.name}
-                        </option>
-                      ))}
-                    </select>
-                    <label
-                      htmlFor="day"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Deadline:
-                    </label>
-                    <input
-                      id="deadline"
-                      type="date"
-                      placeholder="Deadline of Assignment"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={deadline}
-                      onChange={(e) => setDeadline(e.target.value)}
-                    />
-                    <label
-                      htmlFor="time"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      Time:
-                    </label>
-                    <input
-                      name="time"
-                      type="time"
-                      id="time"
-                      className="border border-gray-300 rounded-md p-2 w-full text-black"
-                      value={time}
-                      onChange={(e) => setTime(e.target.value)}
-                    />
-                    <label
-                      htmlFor="file"
-                      className="block font-medium text-gray-700 text-black dark:text-white"
-                    >
-                      File:
-                    </label>
-                    <input
-                      name="file"
-                      id="file"
-                      type="file"
-                      className="border border-gray-300 rounded-md bg-white p-2 w-full text-black"
-                      placeholder="select file"
-                      onChange={(files) =>
-                        handleSelectedFile(files.target.files)
-                      }
-                    />
-                  </form>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="btnClose"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="btnSave"
-                    type="button"
-                    onClick={handleUploadAndAdd}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Loading..." : "Save Changes"}
-                  </button>
-                </div>
-              </div>
+      <Modal open={showModal} onClose={() => setShowModal(false)} title="Add Assignment">
+        <form className="space-y-3">
+          <div>
+            <label htmlFor="task" className="modal-label">
+              Name Task
+            </label>
+            <input
+              name="task"
+              type="text"
+              id="task"
+              className="modal-input"
+              placeholder="Name of Task"
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="lesson" className="modal-label">
+              Lesson
+            </label>
+            <select
+              name="lesson"
+              id="lesson"
+              className="modal-select"
+              value={lesson}
+              onChange={(e) => {
+                const selectedLesson = lessons.find((l) => l.id === e.target.value);
+                if (selectedLesson) {
+                  setLesson(selectedLesson.id);
+                  setTeacherId(selectedLesson.teacherId);
+                }
+              }}
+            >
+              <option value="" hidden>
+                Select Lesson
+              </option>
+              {lessons.map((lesson) => (
+                <option value={lesson.id} key={lesson.id}>
+                  {lesson.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="classroom" className="modal-label">
+              Classroom
+            </label>
+            <select
+              name="classroom"
+              id="classroom"
+              className="modal-select"
+              value={classroom}
+              onChange={(e) => setClassroom(e.target.value)}
+            >
+              <option value="" hidden>
+                Select Classroom
+              </option>
+              {classrooms.map((classroom) => (
+                <option value={classroom.id} key={classroom.id}>
+                  {classroom.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div>
+              <label htmlFor="deadline" className="modal-label">
+                Deadline
+              </label>
+              <input
+                id="deadline"
+                type="date"
+                placeholder="Deadline of Assignment"
+                className="modal-input"
+                value={deadline}
+                onChange={(e) => setDeadline(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="time" className="modal-label">
+                Time
+              </label>
+              <input
+                name="time"
+                type="time"
+                id="time"
+                className="modal-input"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+          <div>
+            <label htmlFor="file" className="modal-label">
+              File
+            </label>
+            <input
+              name="file"
+              id="file"
+              type="file"
+              className="modal-input"
+              placeholder="select file"
+              onChange={(files) => handleSelectedFile(files.target.files)}
+            />
+          </div>
+        </form>
+        <div className="mt-6 flex justify-end gap-3">
+          <button className="btnClose" type="button" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+          <button className="btnSave" type="button" onClick={handleUploadAndAdd} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Save Changes"}
+          </button>
+        </div>
+      </Modal>
     </>
   );
 };
