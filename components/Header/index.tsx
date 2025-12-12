@@ -5,6 +5,7 @@ import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import Image from "next/image";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { FiMenu } from "react-icons/fi";
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -21,39 +22,9 @@ const Header = (props: {
                 e.stopPropagation();
                 props.setSidebarOpen(!props.sidebarOpen);
               }}
-              className="z-99999 block rounded-lg border border-slate-300/80 bg-white/80 p-2 text-slate-900 shadow dark:border-white/15 dark:bg-white/10 dark:text-white lg:hidden"
+              className="z-99999 block items-center rounded-lg border border-slate-300/80 bg-white/80 p-2 text-slate-900 shadow dark:border-white/15 dark:bg-white/10 dark:text-white lg:hidden"
             >
-              <span className="relative block h-5.5 w-5.5 cursor-pointer">
-                <span className="du-block absolute right-0 h-full w-full">
-                  <span
-                    className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-slate-900 delay-[0] duration-200 ease-in-out dark:bg-white ${
-                      !props.sidebarOpen && "!w-full delay-300"
-                    }`}
-                  ></span>
-                  <span
-                    className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-slate-900 delay-150 duration-200 ease-in-out dark:bg-white ${
-                      !props.sidebarOpen && "delay-400 !w-full"
-                    }`}
-                  ></span>
-                  <span
-                    className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-slate-900 delay-200 duration-200 ease-in-out dark:bg-white ${
-                      !props.sidebarOpen && "!w-full delay-500"
-                    }`}
-                  ></span>
-                </span>
-                <span className="absolute right-0 h-full w-full rotate-45">
-                  <span
-                    className={`absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-slate-900 delay-300 duration-200 ease-in-out dark:bg-white ${
-                      !props.sidebarOpen && "!h-0 !delay-[0]"
-                    }`}
-                  ></span>
-                  <span
-                    className={`delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-slate-900 duration-200 ease-in-out dark:bg-white ${
-                      !props.sidebarOpen && "!h-0 !delay-200"
-                    }`}
-                  ></span>
-                </span>
-              </span>
+              <FiMenu className="h-6 w-6" />
             </button>
 
             <Link className="block flex-shrink-0 lg:hidden" href="/">
@@ -73,11 +44,11 @@ const Header = (props: {
               />
             </Link>
           </div>
-          <LanguageSwitcher />
-          <DarkModeSwitcher />
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-5">
+          <DarkModeSwitcher />
+          <LanguageSwitcher />
           <DropdownUser />
         </div>
       </div>
