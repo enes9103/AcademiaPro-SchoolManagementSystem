@@ -7,7 +7,6 @@ import { UnknownHome } from "@/components/home/UnknownHome";
 
 const Home = async () => {
   const session = await auth();
-
   if (
     !session?.user ||
     session.user.status !== UserStatus.ACTIVE ||
