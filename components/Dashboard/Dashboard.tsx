@@ -2,7 +2,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import CardDataStats from "../CardDataStats";
 import { FiBookOpen, FiClipboard, FiGrid, FiUsers } from "react-icons/fi";
-
 import { RoleGate } from "@/components/auth/role-gate";
 import { UserRole } from "@prisma/client";
 import { useTranslation } from "react-i18next";
