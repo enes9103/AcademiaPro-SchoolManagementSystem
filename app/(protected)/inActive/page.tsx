@@ -12,7 +12,7 @@ const Page = () => {
         }}
       >
         <iframe
-          allowFullScreen={true} // Or you can omit it if you want to use the default behavior (false)
+          allowFullScreen={true}
           frameBorder="0"
           height="100%"
           src="https://giphy.com/embed/JnLrDWfy1j9fXeqW7t/video"
