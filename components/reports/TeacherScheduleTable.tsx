@@ -10,7 +10,7 @@ export type TeacherScheduleRow = {
   id: string;
   className: string;
   lessonName: string;
-  date: string; // ISO string
+  date: string;
   time: string;
   students: number;
   capacity?: number | null;
